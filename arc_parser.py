@@ -4,19 +4,25 @@ from arc_lexer import tokens
 # Grammar rules
 
 def p_model_arc(p):
-    'model_arc : imports namespace'
-    p[0] = ('module', p[1], p[2])
+    '''model_arc : namespaces'''
+    p[0] = ('module', p[1])    
 
-# 'imports' can be a list of 'import' statements or empty
-def p_imports(p):
-    '''imports : import imports
-               | empty'''
+def p_namespaces(p):
+    '''namespaces : namespace namespaces
+                  | empty'''
     if len(p) == 3:
-        # p[1] is a single 'import' statement
-        # p[2] is the rest of the 'imports'
+        # p[1] is a single 'namespace'
+        # p[2] is the rest of the 'namespaces'
         p[0] = [p[1]] + p[2]
     else:
         p[0] = []
+
+# Single 'namespace' definition
+def p_namespace(p):
+    'namespace : NAMESPACE IDENTIFIER LBRACE definitions RBRACE'
+    # p[2] is the name of the namespace
+    # p[4] is the list of 'definitions' inside the namespace
+    p[0] = ('namespace', p[2], p[4])
 
 def p_definitions(p):
     '''definitions : definition definitions
@@ -147,25 +153,11 @@ def p_type_definition(p):
         p[0] = ('extended_type', p[2], p[4], p[6])
     
 def p_type_properties(p):
-    '''type_properties : type_property type_properties
+    '''type_properties : type_prop type_properties
                        | empty'''
     if len(p) == 3:
         # p[1] is a single 'type_property'
         # p[2] is the rest of the 'type_properties'
-        p[0] = [p[1]] + p[2]
-    else:
-        p[0] = []
-
-def p_type_property(p):
-    '''type_property : type_declaration_list'''
-    p[0] = p[1]
-
-def p_type_declaration_list(p):
-    '''type_declaration_list : type_prop type_declaration_list
-                            | empty'''
-    if len(p) == 3:
-        # p[1] is a single 'type_declaration'
-        # p[2] is the rest of the 'type_declaration_list'
         p[0] = [p[1]] + p[2]
     else:
         p[0] = []
@@ -199,19 +191,6 @@ def p_primitive_type_declaration(p):
         p[0] = ('primitive_type_declaration', p[1])
     else:
         p[0] = ('list_type_declaration', p[3])
-
-# Single 'import' statement
-def p_import(p):
-    'import : IMPORT STRING'
-    # p[2] is the string being imported
-    p[0] = ('import', p[2])
-
-# Single 'namespace' definition
-def p_namespace(p):
-    'namespace : NAMESPACE IDENTIFIER LBRACE definitions RBRACE'
-    # p[2] is the name of the namespace
-    # p[4] is the list of 'definitions' inside the namespace
-    p[0] = ('namespace', p[2], p[4])
 
 def p_empty(p):
     'empty :'

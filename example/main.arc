@@ -1,4 +1,4 @@
-import "test_file"
+import "process.arc"
 // Comment
 
 namespace NexovaBM.test.test { 

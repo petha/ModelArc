@@ -2,7 +2,7 @@ import ply.lex as lex
 
 
 tokens = (
-    'IMPORT', 'NAMESPACE', 'TYPE', 'INSTANCE',
+    'NAMESPACE', 'TYPE', 'INSTANCE',
     'LIST_TYPE', 'LT', 'GT',
     'USING',
     'COMMA', 'LBRACKET', 'RBRACKET',
@@ -14,7 +14,6 @@ tokens = (
 
 # Reserved words
 reserved = {
-    'import': 'IMPORT',
     'extends': 'EXTENDS',
     'namespace': 'NAMESPACE',
     'Type': 'TYPE',

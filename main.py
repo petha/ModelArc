@@ -1,6 +1,7 @@
 import sys
 import argparse
 
+from arc_preprocessor import preprocessor
 from arc_lexer import lexer
 from arc_parser import arc_parser
 #from arc_ast import build_ast, validate_ast, print_ast
@@ -34,11 +35,11 @@ def main():
 
     args = arg_parser.parse_args()
     
-    with open(args.input_file, 'r') as f:
-        source_code = f.read()
-    
+    source_code = preprocessor(args.input_file)
+    print(source_code)
     lexer.input(source_code)
-    parse_tree = arc_parser.parse(source_code, lexer=lexer)
+    lexer.filename = args.input_file
+    parse_tree = arc_parser.parse(source_code, lexer=lexer, tracking=True)
     
     #ast = build_ast(parse_tree)
     #validate_ast(ast)
