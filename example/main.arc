@@ -4,7 +4,7 @@ import "process.arc"
 namespace NexovaBM.test.test { 
     Type Computer {
         List<String> Test
-        List<Namespace.Application> Test
+        List<Application> Test
         String Name
         Number CPU
         Number RAM
@@ -62,6 +62,7 @@ namespace NexovaBM.test.test {
 
     Instance MyLaptop of Computer {
         Name = "Windows"
+        Test = EnumStatus.value
         Test = {
             Name = "Test"
         }

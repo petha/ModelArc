@@ -7,8 +7,6 @@ Model Arc is a domain-specific language for modeling business processes, applica
 **Note:** The language is currently in development and not ready for **any** use. The parser is partially working and currently builds an incomplete AST.
 
 Still to do:
-- importing of files
-- Better AST
 - Symbol tables and lookups 
 - Type checking
 - Transformation engine 
@@ -153,13 +151,3 @@ Contributions are welcome! Please fork the repository and submit pull requests f
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
-
-### Summary
-
-- **Installation**: Provides steps to set up the project.
-- **Usage**: Explains how to define models and parse them.
-- **Features**: Lists the key features of the language.
-- **Example**: Includes an example `.arc` file and how to parse it.
-- **Contributing and License**: Basic contributing guidelines and license information.
-
-

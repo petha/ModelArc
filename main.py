@@ -1,21 +1,14 @@
-import sys
 import argparse
 
 from arc_preprocessor import preprocessor
 from arc_lexer import lexer
 from arc_parser import arc_parser
+from arc_ast import pretty_print
 #from arc_ast import build_ast, validate_ast, print_ast
 
-def print_ast(ast, indent=0):
-    if isinstance(ast, tuple):
-        print(" " * indent + ast[0])
-        for child in ast[1:]:
-            print_ast(child, indent + 2)
-    elif isinstance(ast, list):
-        for child in ast:
-            print_ast(child, indent + 2)
-    else:
-        print(" " * indent + str(ast))
+def print_ast(ast):
+    pretty_printer = pretty_print.PrettyPrint()
+    ast.accept(pretty_printer)
 
 target_functions = {
     'print': print_ast
@@ -31,16 +24,14 @@ def main():
                             type=str, 
                             default=target_function_keys[0], 
                             choices=target_function_keys, 
-                            help='Output file to write compiled code')
+                            help='Target output format')
 
     args = arg_parser.parse_args()
     
     source_code = preprocessor(args.input_file)
-    print(source_code)
     lexer.input(source_code)
-    lexer.filename = args.input_file
     parse_tree = arc_parser.parse(source_code, lexer=lexer, tracking=True)
-    
+  
     #ast = build_ast(parse_tree)
     #validate_ast(ast)
 

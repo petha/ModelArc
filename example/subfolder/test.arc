@@ -2,7 +2,7 @@ import "data.arc"
 import "../main.arc"
 
 namespace test {
-    Type Test {
+    Type Test extends B {
         String apa
     }
 

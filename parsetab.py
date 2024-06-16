@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'ARROW BOOLEAN BOOLEAN_TYPE COMMA DATE DATE_TYPE ENUM EQUALS EXTENDS GT IDENTIFIER INSTANCE LBRACE LBRACKET LIST_TYPE LT NAMESPACE NUMBER NUMBER_TYPE OF RBRACE RBRACKET STRING STRING_TYPE TRANSFORMATION TYPE USINGmodel_arc : namespacesnamespaces : namespace namespaces\n                  | emptynamespace : NAMESPACE IDENTIFIER LBRACE definitions RBRACEdefinitions : definition definitions\n                    | emptydefinition : type_definition\n                  | instance\n                  | enum\n                  | transformationenum : ENUM IDENTIFIER LBRACE enum_values RBRACEenum_values : enum_value COMMA enum_values\n                   | enum_valueenum_value : IDENTIFIERtransformation : TRANSFORMATION IDENTIFIER IDENTIFIER ARROW IDENTIFIER LBRACE transformation_properties RBRACEtransformation_properties : transformation_property transformation_properties\n                                 | emptytransformation_property : IDENTIFIER ARROW IDENTIFIER\n                               | value ARROW IDENTIFIER\n                               | IDENTIFIER ARROW IDENTIFIER USING IDENTIFIERinstance : INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACEinstance_properties : instance_property instance_properties\n                           | emptyinstance_property : IDENTIFIER EQUALS valuevalue : simple_value\n             | complex_value\n             | list_value\n             | referencelist_value : LBRACKET list_values RBRACKETlist_values : value COMMA list_values\n                   | valuereference : IDENTIFIERsimple_value : STRING\n                    | NUMBER\n                    | BOOLEAN\n                    | DATEcomplex_value : LBRACE instance_properties RBRACEtype_definition : TYPE IDENTIFIER LBRACE type_properties RBRACE\n        | TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties  RBRACE type_properties : type_prop type_properties\n                       | emptytype_prop : type_declaration IDENTIFIER\n                    | IDENTIFIER LBRACE type_properties RBRACEtype_declaration :   primitive_type_declaration\n                            | user_defined_type_declarationuser_defined_type_declaration : IDENTIFIERprimitive_type_declaration : STRING_TYPE\n            | NUMBER_TYPE\n            | BOOLEAN_TYPE\n            | DATE_TYPE\n            | LIST_TYPE LT type_declaration GTempty :'
+_lr_signature = 'ARROW BOOLEAN BOOLEAN_TYPE COMMA DATE DATE_TYPE ENUM EQUALS EXTENDS GT IDENTIFIER INSTANCE LBRACE LBRACKET LIST_TYPE LT NAMESPACE NUMBER NUMBER_TYPE OF RBRACE RBRACKET STRING STRING_TYPE TRANSFORMATION TYPE USINGmodel_arc : namespacesnamespaces : namespace namespaces\n                  | emptynamespace : NAMESPACE IDENTIFIER LBRACE definitions RBRACEdefinitions : definition definitions\n                    | emptydefinition : type_definition\n                  | instance\n                  | enum\n                  | transformationenum : ENUM IDENTIFIER LBRACE enum_values RBRACEenum_values : enum_value COMMA enum_values\n                   | enum_valueenum_value : IDENTIFIERtransformation : TRANSFORMATION IDENTIFIER IDENTIFIER ARROW IDENTIFIER LBRACE transformation_properties RBRACEtransformation_properties : transformation_property transformation_properties\n                                 | emptytransformation_property : value ARROW IDENTIFIER\n                               | value ARROW IDENTIFIER USING IDENTIFIERinstance : INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACEinstance_properties : instance_property instance_properties\n                           | emptyinstance_property : IDENTIFIER EQUALS valuevalue : simple_value\n             | record_value\n             | list_value\n             | referencelist_value : LBRACKET list_values RBRACKETlist_values : value COMMA list_values\n                   | valuereference : IDENTIFIERsimple_value : STRING\n                    | NUMBER\n                    | BOOLEAN\n                    | DATErecord_value : LBRACE instance_properties RBRACEtype_definition : TYPE IDENTIFIER LBRACE type_properties RBRACE\n        | TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties  RBRACE type_properties : type_prop type_properties\n                       | emptytype_prop : type_declaration IDENTIFIER\n                    | IDENTIFIER LBRACE type_properties RBRACEtype_declaration :   primitive_type_declaration\n                            | user_defined_type_declarationuser_defined_type_declaration : IDENTIFIERprimitive_type_declaration : STRING_TYPE\n            | NUMBER_TYPE\n            | BOOLEAN_TYPE\n            | DATE_TYPE\n            | LIST_TYPE LT type_declaration GTempty :'
     
-_lr_action_items = {'NAMESPACE':([0,3,20,],[5,5,-4,]),'$end':([0,1,2,3,4,6,20,],[-52,0,-1,-52,-3,-2,-4,]),'IDENTIFIER':([5,16,17,18,19,25,26,27,28,29,31,33,35,36,37,38,39,40,41,48,49,52,53,54,55,57,65,68,69,70,72,76,78,81,82,83,84,85,86,87,88,89,90,91,92,96,99,100,101,102,103,104,106,],[7,22,23,24,25,30,31,43,44,45,-46,31,52,-44,-45,-47,-48,-49,-50,58,31,-42,61,31,63,45,63,75,-43,-51,90,63,75,-25,-26,-27,-28,-33,-34,-35,-36,90,-32,-24,99,101,-18,-37,-19,-29,90,106,-20,]),'LBRACE':([7,22,24,31,43,44,58,68,72,78,89,99,101,103,106,],[8,26,29,49,54,55,68,76,76,76,76,-18,-19,76,-20,]),'RBRACE':([8,9,10,11,12,13,14,15,21,26,32,33,34,45,46,47,49,50,51,52,54,55,56,59,62,64,65,66,67,68,69,71,73,74,76,77,78,79,81,82,83,84,85,86,87,88,90,91,93,94,95,99,100,101,102,106,],[-52,20,-52,-6,-7,-8,-9,-10,-5,-52,50,-52,-41,-14,56,-13,-52,-38,-40,-42,-52,-52,-11,69,71,73,-52,-23,-12,-52,-43,-39,-21,-22,-52,94,-52,-17,-25,-26,-27,-28,-33,-34,-35,-36,-32,-24,100,-15,-16,-18,-37,-19,-29,-20,]),'TYPE':([8,10,12,13,14,15,50,56,71,73,94,],[16,16,-7,-8,-9,-10,-38,-11,-39,-21,-15,]),'INSTANCE':([8,10,12,13,14,15,50,56,71,73,94,],[17,17,-7,-8,-9,-10,-38,-11,-39,-21,-15,]),'ENUM':([8,10,12,13,14,15,50,56,71,73,94,],[18,18,-7,-8,-9,-10,-38,-11,-39,-21,-15,]),'TRANSFORMATION':([8,10,12,13,14,15,50,56,71,73,94,],[19,19,-7,-8,-9,-10,-38,-11,-39,-21,-15,]),'EXTENDS':([22,],[27,]),'OF':([23,],[28,]),'STRING_TYPE':([26,33,49,52,53,54,69,],[38,38,38,-42,38,38,-43,]),'NUMBER_TYPE':([26,33,49,52,53,54,69,],[39,39,39,-42,39,39,-43,]),'BOOLEAN_TYPE':([26,33,49,52,53,54,69,],[40,40,40,-42,40,40,-43,]),'DATE_TYPE':([26,33,49,52,53,54,69,],[41,41,41,-42,41,41,-43,]),'LIST_TYPE':([26,33,49,52,53,54,69,],[42,42,42,-42,42,42,-43,]),'ARROW':([30,75,80,81,82,83,84,85,86,87,88,100,102,],[48,92,96,-25,-26,-27,-28,-33,-34,-35,-36,-37,-29,]),'GT':([36,37,38,39,40,41,60,61,70,],[-44,-45,-47,-48,-49,-50,70,-46,-51,]),'LT':([42,],[53,]),'COMMA':([45,47,81,82,83,84,85,86,87,88,90,98,100,102,],[-14,57,-25,-26,-27,-28,-33,-34,-35,-36,-32,103,-37,-29,]),'EQUALS':([63,],[72,]),'STRING':([68,72,78,89,99,101,103,106,],[85,85,85,85,-18,-19,85,-20,]),'NUMBER':([68,72,78,89,99,101,103,106,],[86,86,86,86,-18,-19,86,-20,]),'BOOLEAN':([68,72,78,89,99,101,103,106,],[87,87,87,87,-18,-19,87,-20,]),'DATE':([68,72,78,89,99,101,103,106,],[88,88,88,88,-18,-19,88,-20,]),'LBRACKET':([68,72,78,89,99,101,103,106,],[89,89,89,89,-18,-19,89,-20,]),'RBRACKET':([81,82,83,84,85,86,87,88,90,97,98,100,102,105,],[-25,-26,-27,-28,-33,-34,-35,-36,-32,102,-31,-37,-29,-30,]),'USING':([99,],[104,]),}
+_lr_action_items = {'NAMESPACE':([0,3,20,],[5,5,-4,]),'$end':([0,1,2,3,4,6,20,],[-51,0,-1,-51,-3,-2,-4,]),'IDENTIFIER':([5,16,17,18,19,25,26,27,28,29,31,33,35,36,37,38,39,40,41,48,49,52,53,54,55,57,65,68,69,70,72,75,76,78,81,82,83,84,85,86,87,88,89,90,94,97,98,99,100,101,103,],[7,22,23,24,25,30,31,43,44,45,-45,31,52,-43,-44,-46,-47,-48,-49,58,31,-41,61,31,63,45,63,75,-42,-50,75,-31,63,75,-24,-25,-26,-27,-32,-33,-34,-35,75,-23,98,-36,-18,-28,75,103,-19,]),'LBRACE':([7,22,24,31,43,44,58,68,72,78,89,98,100,103,],[8,26,29,49,54,55,68,76,76,76,76,-18,76,-19,]),'RBRACE':([8,9,10,11,12,13,14,15,21,26,32,33,34,45,46,47,49,50,51,52,54,55,56,59,62,64,65,66,67,68,69,71,73,74,75,76,77,78,79,81,82,83,84,85,86,87,88,90,91,92,93,97,98,99,103,],[-51,20,-51,-6,-7,-8,-9,-10,-5,-51,50,-51,-40,-14,56,-13,-51,-37,-39,-41,-51,-51,-11,69,71,73,-51,-22,-12,-51,-42,-38,-20,-21,-31,-51,92,-51,-17,-24,-25,-26,-27,-32,-33,-34,-35,-23,97,-15,-16,-36,-18,-28,-19,]),'TYPE':([8,10,12,13,14,15,50,56,71,73,92,],[16,16,-7,-8,-9,-10,-37,-11,-38,-20,-15,]),'INSTANCE':([8,10,12,13,14,15,50,56,71,73,92,],[17,17,-7,-8,-9,-10,-37,-11,-38,-20,-15,]),'ENUM':([8,10,12,13,14,15,50,56,71,73,92,],[18,18,-7,-8,-9,-10,-37,-11,-38,-20,-15,]),'TRANSFORMATION':([8,10,12,13,14,15,50,56,71,73,92,],[19,19,-7,-8,-9,-10,-37,-11,-38,-20,-15,]),'EXTENDS':([22,],[27,]),'OF':([23,],[28,]),'STRING_TYPE':([26,33,49,52,53,54,69,],[38,38,38,-41,38,38,-42,]),'NUMBER_TYPE':([26,33,49,52,53,54,69,],[39,39,39,-41,39,39,-42,]),'BOOLEAN_TYPE':([26,33,49,52,53,54,69,],[40,40,40,-41,40,40,-42,]),'DATE_TYPE':([26,33,49,52,53,54,69,],[41,41,41,-41,41,41,-42,]),'LIST_TYPE':([26,33,49,52,53,54,69,],[42,42,42,-41,42,42,-42,]),'ARROW':([30,75,80,81,82,83,84,85,86,87,88,97,99,],[48,-31,94,-24,-25,-26,-27,-32,-33,-34,-35,-36,-28,]),'GT':([36,37,38,39,40,41,60,61,70,],[-43,-44,-46,-47,-48,-49,70,-45,-50,]),'LT':([42,],[53,]),'COMMA':([45,47,75,81,82,83,84,85,86,87,88,96,97,99,],[-14,57,-31,-24,-25,-26,-27,-32,-33,-34,-35,100,-36,-28,]),'EQUALS':([63,],[72,]),'STRING':([68,72,78,89,98,100,103,],[85,85,85,85,-18,85,-19,]),'NUMBER':([68,72,78,89,98,100,103,],[86,86,86,86,-18,86,-19,]),'BOOLEAN':([68,72,78,89,98,100,103,],[87,87,87,87,-18,87,-19,]),'DATE':([68,72,78,89,98,100,103,],[88,88,88,88,-18,88,-19,]),'LBRACKET':([68,72,78,89,98,100,103,],[89,89,89,89,-18,89,-19,]),'RBRACKET':([75,81,82,83,84,85,86,87,88,95,96,97,99,102,],[-31,-24,-25,-26,-27,-32,-33,-34,-35,99,-30,-36,-28,-29,]),'USING':([98,],[101,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'model_arc':([0,],[1,]),'namespaces':([0,3,],[2,6,]),'namespace':([0,3,],[3,3,]),'empty':([0,3,8,10,26,33,49,54,55,65,68,76,78,],[4,4,11,11,34,34,34,34,66,66,79,66,79,]),'definitions':([8,10,],[9,21,]),'definition':([8,10,],[10,10,]),'type_definition':([8,10,],[12,12,]),'instance':([8,10,],[13,13,]),'enum':([8,10,],[14,14,]),'transformation':([8,10,],[15,15,]),'type_properties':([26,33,49,54,],[32,51,59,62,]),'type_prop':([26,33,49,54,],[33,33,33,33,]),'type_declaration':([26,33,49,53,54,],[35,35,35,60,35,]),'primitive_type_declaration':([26,33,49,53,54,],[36,36,36,36,36,]),'user_defined_type_declaration':([26,33,49,53,54,],[37,37,37,37,37,]),'enum_values':([29,57,],[46,67,]),'enum_value':([29,57,],[47,47,]),'instance_properties':([55,65,76,],[64,74,93,]),'instance_property':([55,65,76,],[65,65,65,]),'transformation_properties':([68,78,],[77,95,]),'transformation_property':([68,78,],[78,78,]),'value':([68,72,78,89,103,],[80,91,80,98,98,]),'simple_value':([68,72,78,89,103,],[81,81,81,81,81,]),'complex_value':([68,72,78,89,103,],[82,82,82,82,82,]),'list_value':([68,72,78,89,103,],[83,83,83,83,83,]),'reference':([68,72,78,89,103,],[84,84,84,84,84,]),'list_values':([89,103,],[97,105,]),}
+_lr_goto_items = {'model_arc':([0,],[1,]),'namespaces':([0,3,],[2,6,]),'namespace':([0,3,],[3,3,]),'empty':([0,3,8,10,26,33,49,54,55,65,68,76,78,],[4,4,11,11,34,34,34,34,66,66,79,66,79,]),'definitions':([8,10,],[9,21,]),'definition':([8,10,],[10,10,]),'type_definition':([8,10,],[12,12,]),'instance':([8,10,],[13,13,]),'enum':([8,10,],[14,14,]),'transformation':([8,10,],[15,15,]),'type_properties':([26,33,49,54,],[32,51,59,62,]),'type_prop':([26,33,49,54,],[33,33,33,33,]),'type_declaration':([26,33,49,53,54,],[35,35,35,60,35,]),'primitive_type_declaration':([26,33,49,53,54,],[36,36,36,36,36,]),'user_defined_type_declaration':([26,33,49,53,54,],[37,37,37,37,37,]),'enum_values':([29,57,],[46,67,]),'enum_value':([29,57,],[47,47,]),'instance_properties':([55,65,76,],[64,74,91,]),'instance_property':([55,65,76,],[65,65,65,]),'transformation_properties':([68,78,],[77,93,]),'transformation_property':([68,78,],[78,78,]),'value':([68,72,78,89,100,],[80,90,80,96,96,]),'simple_value':([68,72,78,89,100,],[81,81,81,81,81,]),'record_value':([68,72,78,89,100,],[82,82,82,82,82,]),'list_value':([68,72,78,89,100,],[83,83,83,83,83,]),'reference':([68,72,78,89,100,],[84,84,84,84,84,]),'list_values':([89,100,],[95,102,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -27,56 +27,55 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> model_arc","S'",1,None,None,None),
-  ('model_arc -> namespaces','model_arc',1,'p_model_arc','arc_parser.py',7),
-  ('namespaces -> namespace namespaces','namespaces',2,'p_namespaces','arc_parser.py',11),
-  ('namespaces -> empty','namespaces',1,'p_namespaces','arc_parser.py',12),
-  ('namespace -> NAMESPACE IDENTIFIER LBRACE definitions RBRACE','namespace',5,'p_namespace','arc_parser.py',22),
-  ('definitions -> definition definitions','definitions',2,'p_definitions','arc_parser.py',28),
-  ('definitions -> empty','definitions',1,'p_definitions','arc_parser.py',29),
-  ('definition -> type_definition','definition',1,'p_definition','arc_parser.py',38),
-  ('definition -> instance','definition',1,'p_definition','arc_parser.py',39),
-  ('definition -> enum','definition',1,'p_definition','arc_parser.py',40),
-  ('definition -> transformation','definition',1,'p_definition','arc_parser.py',41),
-  ('enum -> ENUM IDENTIFIER LBRACE enum_values RBRACE','enum',5,'p_enum','arc_parser.py',45),
-  ('enum_values -> enum_value COMMA enum_values','enum_values',3,'p_enum_values','arc_parser.py',51),
-  ('enum_values -> enum_value','enum_values',1,'p_enum_values','arc_parser.py',52),
-  ('enum_value -> IDENTIFIER','enum_value',1,'p_enum_value','arc_parser.py',61),
-  ('transformation -> TRANSFORMATION IDENTIFIER IDENTIFIER ARROW IDENTIFIER LBRACE transformation_properties RBRACE','transformation',8,'p_transformation','arc_parser.py',65),
-  ('transformation_properties -> transformation_property transformation_properties','transformation_properties',2,'p_transformation_properties','arc_parser.py',72),
-  ('transformation_properties -> empty','transformation_properties',1,'p_transformation_properties','arc_parser.py',73),
-  ('transformation_property -> IDENTIFIER ARROW IDENTIFIER','transformation_property',3,'p_transformation_property','arc_parser.py',82),
-  ('transformation_property -> value ARROW IDENTIFIER','transformation_property',3,'p_transformation_property','arc_parser.py',83),
-  ('transformation_property -> IDENTIFIER ARROW IDENTIFIER USING IDENTIFIER','transformation_property',5,'p_transformation_property','arc_parser.py',84),
-  ('instance -> INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACE','instance',7,'p_instance','arc_parser.py',88),
-  ('instance_properties -> instance_property instance_properties','instance_properties',2,'p_instance_properties','arc_parser.py',95),
-  ('instance_properties -> empty','instance_properties',1,'p_instance_properties','arc_parser.py',96),
-  ('instance_property -> IDENTIFIER EQUALS value','instance_property',3,'p_instance_property','arc_parser.py',105),
-  ('value -> simple_value','value',1,'p_value','arc_parser.py',110),
-  ('value -> complex_value','value',1,'p_value','arc_parser.py',111),
-  ('value -> list_value','value',1,'p_value','arc_parser.py',112),
-  ('value -> reference','value',1,'p_value','arc_parser.py',113),
-  ('list_value -> LBRACKET list_values RBRACKET','list_value',3,'p_list_value','arc_parser.py',117),
-  ('list_values -> value COMMA list_values','list_values',3,'p_list_values','arc_parser.py',121),
-  ('list_values -> value','list_values',1,'p_list_values','arc_parser.py',122),
-  ('reference -> IDENTIFIER','reference',1,'p_reference','arc_parser.py',131),
-  ('simple_value -> STRING','simple_value',1,'p_simple_value','arc_parser.py',135),
-  ('simple_value -> NUMBER','simple_value',1,'p_simple_value','arc_parser.py',136),
-  ('simple_value -> BOOLEAN','simple_value',1,'p_simple_value','arc_parser.py',137),
-  ('simple_value -> DATE','simple_value',1,'p_simple_value','arc_parser.py',138),
-  ('complex_value -> LBRACE instance_properties RBRACE','complex_value',3,'p_complex_value','arc_parser.py',142),
-  ('type_definition -> TYPE IDENTIFIER LBRACE type_properties RBRACE','type_definition',5,'p_type_definition','arc_parser.py',146),
-  ('type_definition -> TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties RBRACE','type_definition',7,'p_type_definition','arc_parser.py',147),
-  ('type_properties -> type_prop type_properties','type_properties',2,'p_type_properties','arc_parser.py',156),
-  ('type_properties -> empty','type_properties',1,'p_type_properties','arc_parser.py',157),
-  ('type_prop -> type_declaration IDENTIFIER','type_prop',2,'p_type_prop','arc_parser.py',180),
-  ('type_prop -> IDENTIFIER LBRACE type_properties RBRACE','type_prop',4,'p_type_prop','arc_parser.py',181),
-  ('type_declaration -> primitive_type_declaration','type_declaration',1,'p_type_declaration','arc_parser.py',189),
-  ('type_declaration -> user_defined_type_declaration','type_declaration',1,'p_type_declaration','arc_parser.py',190),
-  ('user_defined_type_declaration -> IDENTIFIER','user_defined_type_declaration',1,'p_user_defined_type_declaration','arc_parser.py',194),
-  ('primitive_type_declaration -> STRING_TYPE','primitive_type_declaration',1,'p_primitive_type_declaration','arc_parser.py',198),
-  ('primitive_type_declaration -> NUMBER_TYPE','primitive_type_declaration',1,'p_primitive_type_declaration','arc_parser.py',199),
-  ('primitive_type_declaration -> BOOLEAN_TYPE','primitive_type_declaration',1,'p_primitive_type_declaration','arc_parser.py',200),
-  ('primitive_type_declaration -> DATE_TYPE','primitive_type_declaration',1,'p_primitive_type_declaration','arc_parser.py',201),
-  ('primitive_type_declaration -> LIST_TYPE LT type_declaration GT','primitive_type_declaration',4,'p_primitive_type_declaration','arc_parser.py',202),
-  ('empty -> <empty>','empty',0,'p_empty','arc_parser.py',210),
+  ('model_arc -> namespaces','model_arc',1,'p_model_arc','arc_parser.py',23),
+  ('namespaces -> namespace namespaces','namespaces',2,'p_namespaces','arc_parser.py',27),
+  ('namespaces -> empty','namespaces',1,'p_namespaces','arc_parser.py',28),
+  ('namespace -> NAMESPACE IDENTIFIER LBRACE definitions RBRACE','namespace',5,'p_namespace','arc_parser.py',38),
+  ('definitions -> definition definitions','definitions',2,'p_definitions','arc_parser.py',48),
+  ('definitions -> empty','definitions',1,'p_definitions','arc_parser.py',49),
+  ('definition -> type_definition','definition',1,'p_definition','arc_parser.py',58),
+  ('definition -> instance','definition',1,'p_definition','arc_parser.py',59),
+  ('definition -> enum','definition',1,'p_definition','arc_parser.py',60),
+  ('definition -> transformation','definition',1,'p_definition','arc_parser.py',61),
+  ('enum -> ENUM IDENTIFIER LBRACE enum_values RBRACE','enum',5,'p_enum','arc_parser.py',65),
+  ('enum_values -> enum_value COMMA enum_values','enum_values',3,'p_enum_values','arc_parser.py',71),
+  ('enum_values -> enum_value','enum_values',1,'p_enum_values','arc_parser.py',72),
+  ('enum_value -> IDENTIFIER','enum_value',1,'p_enum_value','arc_parser.py',81),
+  ('transformation -> TRANSFORMATION IDENTIFIER IDENTIFIER ARROW IDENTIFIER LBRACE transformation_properties RBRACE','transformation',8,'p_transformation','arc_parser.py',85),
+  ('transformation_properties -> transformation_property transformation_properties','transformation_properties',2,'p_transformation_properties','arc_parser.py',94),
+  ('transformation_properties -> empty','transformation_properties',1,'p_transformation_properties','arc_parser.py',95),
+  ('transformation_property -> value ARROW IDENTIFIER','transformation_property',3,'p_transformation_property','arc_parser.py',104),
+  ('transformation_property -> value ARROW IDENTIFIER USING IDENTIFIER','transformation_property',5,'p_transformation_property','arc_parser.py',105),
+  ('instance -> INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACE','instance',7,'p_instance','arc_parser.py',109),
+  ('instance_properties -> instance_property instance_properties','instance_properties',2,'p_instance_properties','arc_parser.py',116),
+  ('instance_properties -> empty','instance_properties',1,'p_instance_properties','arc_parser.py',117),
+  ('instance_property -> IDENTIFIER EQUALS value','instance_property',3,'p_instance_property','arc_parser.py',126),
+  ('value -> simple_value','value',1,'p_value','arc_parser.py',131),
+  ('value -> record_value','value',1,'p_value','arc_parser.py',132),
+  ('value -> list_value','value',1,'p_value','arc_parser.py',133),
+  ('value -> reference','value',1,'p_value','arc_parser.py',134),
+  ('list_value -> LBRACKET list_values RBRACKET','list_value',3,'p_list_value','arc_parser.py',138),
+  ('list_values -> value COMMA list_values','list_values',3,'p_list_values','arc_parser.py',142),
+  ('list_values -> value','list_values',1,'p_list_values','arc_parser.py',143),
+  ('reference -> IDENTIFIER','reference',1,'p_reference','arc_parser.py',152),
+  ('simple_value -> STRING','simple_value',1,'p_simple_value','arc_parser.py',156),
+  ('simple_value -> NUMBER','simple_value',1,'p_simple_value','arc_parser.py',157),
+  ('simple_value -> BOOLEAN','simple_value',1,'p_simple_value','arc_parser.py',158),
+  ('simple_value -> DATE','simple_value',1,'p_simple_value','arc_parser.py',159),
+  ('record_value -> LBRACE instance_properties RBRACE','record_value',3,'p_record_value','arc_parser.py',163),
+  ('type_definition -> TYPE IDENTIFIER LBRACE type_properties RBRACE','type_definition',5,'p_type_definition','arc_parser.py',167),
+  ('type_definition -> TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties RBRACE','type_definition',7,'p_type_definition','arc_parser.py',168),
+  ('type_properties -> type_prop type_properties','type_properties',2,'p_type_properties','arc_parser.py',176),
+  ('type_properties -> empty','type_properties',1,'p_type_properties','arc_parser.py',177),
+  ('type_prop -> type_declaration IDENTIFIER','type_prop',2,'p_type_prop','arc_parser.py',186),
+  ('type_prop -> IDENTIFIER LBRACE type_properties RBRACE','type_prop',4,'p_type_prop','arc_parser.py',187),
+  ('type_declaration -> primitive_type_declaration','type_declaration',1,'p_type_declaration','arc_parser.py',199),
+  ('type_declaration -> user_defined_type_declaration','type_declaration',1,'p_type_declaration','arc_parser.py',200),
+  ('user_defined_type_declaration -> IDENTIFIER','user_defined_type_declaration',1,'p_user_defined_type_declaration','arc_parser.py',204),
+  ('primitive_type_declaration -> STRING_TYPE','primitive_type_declaration',1,'p_primitive_type_declaration','arc_parser.py',208),
+  ('primitive_type_declaration -> NUMBER_TYPE','primitive_type_declaration',1,'p_primitive_type_declaration','arc_parser.py',209),
+  ('primitive_type_declaration -> BOOLEAN_TYPE','primitive_type_declaration',1,'p_primitive_type_declaration','arc_parser.py',210),
+  ('primitive_type_declaration -> DATE_TYPE','primitive_type_declaration',1,'p_primitive_type_declaration','arc_parser.py',211),
+  ('primitive_type_declaration -> LIST_TYPE LT type_declaration GT','primitive_type_declaration',4,'p_primitive_type_declaration','arc_parser.py',212),
+  ('empty -> <empty>','empty',0,'p_empty','arc_parser.py',220),
 ]

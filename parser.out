@@ -20,102 +20,101 @@ Rule 14    enum_value -> IDENTIFIER
 Rule 15    transformation -> TRANSFORMATION IDENTIFIER IDENTIFIER ARROW IDENTIFIER LBRACE transformation_properties RBRACE
 Rule 16    transformation_properties -> transformation_property transformation_properties
 Rule 17    transformation_properties -> empty
-Rule 18    transformation_property -> IDENTIFIER ARROW IDENTIFIER
-Rule 19    transformation_property -> value ARROW IDENTIFIER
-Rule 20    transformation_property -> IDENTIFIER ARROW IDENTIFIER USING IDENTIFIER
-Rule 21    instance -> INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACE
-Rule 22    instance_properties -> instance_property instance_properties
-Rule 23    instance_properties -> empty
-Rule 24    instance_property -> IDENTIFIER EQUALS value
-Rule 25    value -> simple_value
-Rule 26    value -> complex_value
-Rule 27    value -> list_value
-Rule 28    value -> reference
-Rule 29    list_value -> LBRACKET list_values RBRACKET
-Rule 30    list_values -> value COMMA list_values
-Rule 31    list_values -> value
-Rule 32    reference -> IDENTIFIER
-Rule 33    simple_value -> STRING
-Rule 34    simple_value -> NUMBER
-Rule 35    simple_value -> BOOLEAN
-Rule 36    simple_value -> DATE
-Rule 37    complex_value -> LBRACE instance_properties RBRACE
-Rule 38    type_definition -> TYPE IDENTIFIER LBRACE type_properties RBRACE
-Rule 39    type_definition -> TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties RBRACE
-Rule 40    type_properties -> type_prop type_properties
-Rule 41    type_properties -> empty
-Rule 42    type_prop -> type_declaration IDENTIFIER
-Rule 43    type_prop -> IDENTIFIER LBRACE type_properties RBRACE
-Rule 44    type_declaration -> primitive_type_declaration
-Rule 45    type_declaration -> user_defined_type_declaration
-Rule 46    user_defined_type_declaration -> IDENTIFIER
-Rule 47    primitive_type_declaration -> STRING_TYPE
-Rule 48    primitive_type_declaration -> NUMBER_TYPE
-Rule 49    primitive_type_declaration -> BOOLEAN_TYPE
-Rule 50    primitive_type_declaration -> DATE_TYPE
-Rule 51    primitive_type_declaration -> LIST_TYPE LT type_declaration GT
-Rule 52    empty -> <empty>
+Rule 18    transformation_property -> value ARROW IDENTIFIER
+Rule 19    transformation_property -> value ARROW IDENTIFIER USING IDENTIFIER
+Rule 20    instance -> INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACE
+Rule 21    instance_properties -> instance_property instance_properties
+Rule 22    instance_properties -> empty
+Rule 23    instance_property -> IDENTIFIER EQUALS value
+Rule 24    value -> simple_value
+Rule 25    value -> record_value
+Rule 26    value -> list_value
+Rule 27    value -> reference
+Rule 28    list_value -> LBRACKET list_values RBRACKET
+Rule 29    list_values -> value COMMA list_values
+Rule 30    list_values -> value
+Rule 31    reference -> IDENTIFIER
+Rule 32    simple_value -> STRING
+Rule 33    simple_value -> NUMBER
+Rule 34    simple_value -> BOOLEAN
+Rule 35    simple_value -> DATE
+Rule 36    record_value -> LBRACE instance_properties RBRACE
+Rule 37    type_definition -> TYPE IDENTIFIER LBRACE type_properties RBRACE
+Rule 38    type_definition -> TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties RBRACE
+Rule 39    type_properties -> type_prop type_properties
+Rule 40    type_properties -> empty
+Rule 41    type_prop -> type_declaration IDENTIFIER
+Rule 42    type_prop -> IDENTIFIER LBRACE type_properties RBRACE
+Rule 43    type_declaration -> primitive_type_declaration
+Rule 44    type_declaration -> user_defined_type_declaration
+Rule 45    user_defined_type_declaration -> IDENTIFIER
+Rule 46    primitive_type_declaration -> STRING_TYPE
+Rule 47    primitive_type_declaration -> NUMBER_TYPE
+Rule 48    primitive_type_declaration -> BOOLEAN_TYPE
+Rule 49    primitive_type_declaration -> DATE_TYPE
+Rule 50    primitive_type_declaration -> LIST_TYPE LT type_declaration GT
+Rule 51    empty -> <empty>
 
 Terminals, with rules where they appear
 
-ARROW                : 15 18 19 20
-BOOLEAN              : 35
-BOOLEAN_TYPE         : 49
-COMMA                : 12 30
-DATE                 : 36
-DATE_TYPE            : 50
+ARROW                : 15 18 19
+BOOLEAN              : 34
+BOOLEAN_TYPE         : 48
+COMMA                : 12 29
+DATE                 : 35
+DATE_TYPE            : 49
 ENUM                 : 11
-EQUALS               : 24
-EXTENDS              : 39
-GT                   : 51
-IDENTIFIER           : 4 11 14 15 15 15 18 18 19 20 20 20 21 21 24 32 38 39 39 42 43 46
-INSTANCE             : 21
-LBRACE               : 4 11 15 21 37 38 39 43
-LBRACKET             : 29
-LIST_TYPE            : 51
-LT                   : 51
+EQUALS               : 23
+EXTENDS              : 38
+GT                   : 50
+IDENTIFIER           : 4 11 14 15 15 15 18 19 19 20 20 23 31 37 38 38 41 42 45
+INSTANCE             : 20
+LBRACE               : 4 11 15 20 36 37 38 42
+LBRACKET             : 28
+LIST_TYPE            : 50
+LT                   : 50
 NAMESPACE            : 4
-NUMBER               : 34
-NUMBER_TYPE          : 48
-OF                   : 21
-RBRACE               : 4 11 15 21 37 38 39 43
-RBRACKET             : 29
-STRING               : 33
-STRING_TYPE          : 47
+NUMBER               : 33
+NUMBER_TYPE          : 47
+OF                   : 20
+RBRACE               : 4 11 15 20 36 37 38 42
+RBRACKET             : 28
+STRING               : 32
+STRING_TYPE          : 46
 TRANSFORMATION       : 15
-TYPE                 : 38 39
-USING                : 20
+TYPE                 : 37 38
+USING                : 19
 error                : 
 
 Nonterminals, with rules where they appear
 
-complex_value        : 26
 definition           : 5
 definitions          : 4 5
-empty                : 3 6 17 23 41
+empty                : 3 6 17 22 40
 enum                 : 9
 enum_value           : 12 13
 enum_values          : 11 12
 instance             : 8
-instance_properties  : 21 22 37
-instance_property    : 22
-list_value           : 27
-list_values          : 29 30
+instance_properties  : 20 21 36
+instance_property    : 21
+list_value           : 26
+list_values          : 28 29
 model_arc            : 0
 namespace            : 2
 namespaces           : 1 2
-primitive_type_declaration : 44
-reference            : 28
-simple_value         : 25
+primitive_type_declaration : 43
+record_value         : 25
+reference            : 27
+simple_value         : 24
 transformation       : 10
 transformation_properties : 15 16
 transformation_property : 16
-type_declaration     : 42 51
+type_declaration     : 41 50
 type_definition      : 7
-type_prop            : 40
-type_properties      : 38 39 40 43
-user_defined_type_declaration : 45
-value                : 19 24 30 31
+type_prop            : 39
+type_properties      : 37 38 39 42
+user_defined_type_declaration : 44
+value                : 18 19 23 29 30
 
 Parsing method: LALR
 
@@ -126,10 +125,10 @@ state 0
     (2) namespaces -> . namespace namespaces
     (3) namespaces -> . empty
     (4) namespace -> . NAMESPACE IDENTIFIER LBRACE definitions RBRACE
-    (52) empty -> .
+    (51) empty -> .
 
     NAMESPACE       shift and go to state 5
-    $end            reduce using rule 52 (empty -> .)
+    $end            reduce using rule 51 (empty -> .)
 
     model_arc                      shift and go to state 1
     namespaces                     shift and go to state 2
@@ -155,10 +154,10 @@ state 3
     (2) namespaces -> . namespace namespaces
     (3) namespaces -> . empty
     (4) namespace -> . NAMESPACE IDENTIFIER LBRACE definitions RBRACE
-    (52) empty -> .
+    (51) empty -> .
 
     NAMESPACE       shift and go to state 5
-    $end            reduce using rule 52 (empty -> .)
+    $end            reduce using rule 51 (empty -> .)
 
     namespace                      shift and go to state 3
     namespaces                     shift and go to state 6
@@ -201,14 +200,14 @@ state 8
     (8) definition -> . instance
     (9) definition -> . enum
     (10) definition -> . transformation
-    (52) empty -> .
-    (38) type_definition -> . TYPE IDENTIFIER LBRACE type_properties RBRACE
-    (39) type_definition -> . TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties RBRACE
-    (21) instance -> . INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACE
+    (51) empty -> .
+    (37) type_definition -> . TYPE IDENTIFIER LBRACE type_properties RBRACE
+    (38) type_definition -> . TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties RBRACE
+    (20) instance -> . INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACE
     (11) enum -> . ENUM IDENTIFIER LBRACE enum_values RBRACE
     (15) transformation -> . TRANSFORMATION IDENTIFIER IDENTIFIER ARROW IDENTIFIER LBRACE transformation_properties RBRACE
 
-    RBRACE          reduce using rule 52 (empty -> .)
+    RBRACE          reduce using rule 51 (empty -> .)
     TYPE            shift and go to state 16
     INSTANCE        shift and go to state 17
     ENUM            shift and go to state 18
@@ -238,14 +237,14 @@ state 10
     (8) definition -> . instance
     (9) definition -> . enum
     (10) definition -> . transformation
-    (52) empty -> .
-    (38) type_definition -> . TYPE IDENTIFIER LBRACE type_properties RBRACE
-    (39) type_definition -> . TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties RBRACE
-    (21) instance -> . INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACE
+    (51) empty -> .
+    (37) type_definition -> . TYPE IDENTIFIER LBRACE type_properties RBRACE
+    (38) type_definition -> . TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties RBRACE
+    (20) instance -> . INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACE
     (11) enum -> . ENUM IDENTIFIER LBRACE enum_values RBRACE
     (15) transformation -> . TRANSFORMATION IDENTIFIER IDENTIFIER ARROW IDENTIFIER LBRACE transformation_properties RBRACE
 
-    RBRACE          reduce using rule 52 (empty -> .)
+    RBRACE          reduce using rule 51 (empty -> .)
     TYPE            shift and go to state 16
     INSTANCE        shift and go to state 17
     ENUM            shift and go to state 18
@@ -312,15 +311,15 @@ state 15
 
 state 16
 
-    (38) type_definition -> TYPE . IDENTIFIER LBRACE type_properties RBRACE
-    (39) type_definition -> TYPE . IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties RBRACE
+    (37) type_definition -> TYPE . IDENTIFIER LBRACE type_properties RBRACE
+    (38) type_definition -> TYPE . IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties RBRACE
 
     IDENTIFIER      shift and go to state 22
 
 
 state 17
 
-    (21) instance -> INSTANCE . IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACE
+    (20) instance -> INSTANCE . IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACE
 
     IDENTIFIER      shift and go to state 23
 
@@ -356,8 +355,8 @@ state 21
 
 state 22
 
-    (38) type_definition -> TYPE IDENTIFIER . LBRACE type_properties RBRACE
-    (39) type_definition -> TYPE IDENTIFIER . EXTENDS IDENTIFIER LBRACE type_properties RBRACE
+    (37) type_definition -> TYPE IDENTIFIER . LBRACE type_properties RBRACE
+    (38) type_definition -> TYPE IDENTIFIER . EXTENDS IDENTIFIER LBRACE type_properties RBRACE
 
     LBRACE          shift and go to state 26
     EXTENDS         shift and go to state 27
@@ -365,7 +364,7 @@ state 22
 
 state 23
 
-    (21) instance -> INSTANCE IDENTIFIER . OF IDENTIFIER LBRACE instance_properties RBRACE
+    (20) instance -> INSTANCE IDENTIFIER . OF IDENTIFIER LBRACE instance_properties RBRACE
 
     OF              shift and go to state 28
 
@@ -386,23 +385,23 @@ state 25
 
 state 26
 
-    (38) type_definition -> TYPE IDENTIFIER LBRACE . type_properties RBRACE
-    (40) type_properties -> . type_prop type_properties
-    (41) type_properties -> . empty
-    (42) type_prop -> . type_declaration IDENTIFIER
-    (43) type_prop -> . IDENTIFIER LBRACE type_properties RBRACE
-    (52) empty -> .
-    (44) type_declaration -> . primitive_type_declaration
-    (45) type_declaration -> . user_defined_type_declaration
-    (47) primitive_type_declaration -> . STRING_TYPE
-    (48) primitive_type_declaration -> . NUMBER_TYPE
-    (49) primitive_type_declaration -> . BOOLEAN_TYPE
-    (50) primitive_type_declaration -> . DATE_TYPE
-    (51) primitive_type_declaration -> . LIST_TYPE LT type_declaration GT
-    (46) user_defined_type_declaration -> . IDENTIFIER
+    (37) type_definition -> TYPE IDENTIFIER LBRACE . type_properties RBRACE
+    (39) type_properties -> . type_prop type_properties
+    (40) type_properties -> . empty
+    (41) type_prop -> . type_declaration IDENTIFIER
+    (42) type_prop -> . IDENTIFIER LBRACE type_properties RBRACE
+    (51) empty -> .
+    (43) type_declaration -> . primitive_type_declaration
+    (44) type_declaration -> . user_defined_type_declaration
+    (46) primitive_type_declaration -> . STRING_TYPE
+    (47) primitive_type_declaration -> . NUMBER_TYPE
+    (48) primitive_type_declaration -> . BOOLEAN_TYPE
+    (49) primitive_type_declaration -> . DATE_TYPE
+    (50) primitive_type_declaration -> . LIST_TYPE LT type_declaration GT
+    (45) user_defined_type_declaration -> . IDENTIFIER
 
     IDENTIFIER      shift and go to state 31
-    RBRACE          reduce using rule 52 (empty -> .)
+    RBRACE          reduce using rule 51 (empty -> .)
     STRING_TYPE     shift and go to state 38
     NUMBER_TYPE     shift and go to state 39
     BOOLEAN_TYPE    shift and go to state 40
@@ -418,14 +417,14 @@ state 26
 
 state 27
 
-    (39) type_definition -> TYPE IDENTIFIER EXTENDS . IDENTIFIER LBRACE type_properties RBRACE
+    (38) type_definition -> TYPE IDENTIFIER EXTENDS . IDENTIFIER LBRACE type_properties RBRACE
 
     IDENTIFIER      shift and go to state 43
 
 
 state 28
 
-    (21) instance -> INSTANCE IDENTIFIER OF . IDENTIFIER LBRACE instance_properties RBRACE
+    (20) instance -> INSTANCE IDENTIFIER OF . IDENTIFIER LBRACE instance_properties RBRACE
 
     IDENTIFIER      shift and go to state 44
 
@@ -451,39 +450,39 @@ state 30
 
 state 31
 
-    (43) type_prop -> IDENTIFIER . LBRACE type_properties RBRACE
-    (46) user_defined_type_declaration -> IDENTIFIER .
+    (42) type_prop -> IDENTIFIER . LBRACE type_properties RBRACE
+    (45) user_defined_type_declaration -> IDENTIFIER .
 
     LBRACE          shift and go to state 49
-    IDENTIFIER      reduce using rule 46 (user_defined_type_declaration -> IDENTIFIER .)
+    IDENTIFIER      reduce using rule 45 (user_defined_type_declaration -> IDENTIFIER .)
 
 
 state 32
 
-    (38) type_definition -> TYPE IDENTIFIER LBRACE type_properties . RBRACE
+    (37) type_definition -> TYPE IDENTIFIER LBRACE type_properties . RBRACE
 
     RBRACE          shift and go to state 50
 
 
 state 33
 
-    (40) type_properties -> type_prop . type_properties
-    (40) type_properties -> . type_prop type_properties
-    (41) type_properties -> . empty
-    (42) type_prop -> . type_declaration IDENTIFIER
-    (43) type_prop -> . IDENTIFIER LBRACE type_properties RBRACE
-    (52) empty -> .
-    (44) type_declaration -> . primitive_type_declaration
-    (45) type_declaration -> . user_defined_type_declaration
-    (47) primitive_type_declaration -> . STRING_TYPE
-    (48) primitive_type_declaration -> . NUMBER_TYPE
-    (49) primitive_type_declaration -> . BOOLEAN_TYPE
-    (50) primitive_type_declaration -> . DATE_TYPE
-    (51) primitive_type_declaration -> . LIST_TYPE LT type_declaration GT
-    (46) user_defined_type_declaration -> . IDENTIFIER
+    (39) type_properties -> type_prop . type_properties
+    (39) type_properties -> . type_prop type_properties
+    (40) type_properties -> . empty
+    (41) type_prop -> . type_declaration IDENTIFIER
+    (42) type_prop -> . IDENTIFIER LBRACE type_properties RBRACE
+    (51) empty -> .
+    (43) type_declaration -> . primitive_type_declaration
+    (44) type_declaration -> . user_defined_type_declaration
+    (46) primitive_type_declaration -> . STRING_TYPE
+    (47) primitive_type_declaration -> . NUMBER_TYPE
+    (48) primitive_type_declaration -> . BOOLEAN_TYPE
+    (49) primitive_type_declaration -> . DATE_TYPE
+    (50) primitive_type_declaration -> . LIST_TYPE LT type_declaration GT
+    (45) user_defined_type_declaration -> . IDENTIFIER
 
     IDENTIFIER      shift and go to state 31
-    RBRACE          reduce using rule 52 (empty -> .)
+    RBRACE          reduce using rule 51 (empty -> .)
     STRING_TYPE     shift and go to state 38
     NUMBER_TYPE     shift and go to state 39
     BOOLEAN_TYPE    shift and go to state 40
@@ -499,83 +498,83 @@ state 33
 
 state 34
 
-    (41) type_properties -> empty .
+    (40) type_properties -> empty .
 
-    RBRACE          reduce using rule 41 (type_properties -> empty .)
+    RBRACE          reduce using rule 40 (type_properties -> empty .)
 
 
 state 35
 
-    (42) type_prop -> type_declaration . IDENTIFIER
+    (41) type_prop -> type_declaration . IDENTIFIER
 
     IDENTIFIER      shift and go to state 52
 
 
 state 36
 
-    (44) type_declaration -> primitive_type_declaration .
+    (43) type_declaration -> primitive_type_declaration .
 
-    IDENTIFIER      reduce using rule 44 (type_declaration -> primitive_type_declaration .)
-    GT              reduce using rule 44 (type_declaration -> primitive_type_declaration .)
+    IDENTIFIER      reduce using rule 43 (type_declaration -> primitive_type_declaration .)
+    GT              reduce using rule 43 (type_declaration -> primitive_type_declaration .)
 
 
 state 37
 
-    (45) type_declaration -> user_defined_type_declaration .
+    (44) type_declaration -> user_defined_type_declaration .
 
-    IDENTIFIER      reduce using rule 45 (type_declaration -> user_defined_type_declaration .)
-    GT              reduce using rule 45 (type_declaration -> user_defined_type_declaration .)
+    IDENTIFIER      reduce using rule 44 (type_declaration -> user_defined_type_declaration .)
+    GT              reduce using rule 44 (type_declaration -> user_defined_type_declaration .)
 
 
 state 38
 
-    (47) primitive_type_declaration -> STRING_TYPE .
+    (46) primitive_type_declaration -> STRING_TYPE .
 
-    IDENTIFIER      reduce using rule 47 (primitive_type_declaration -> STRING_TYPE .)
-    GT              reduce using rule 47 (primitive_type_declaration -> STRING_TYPE .)
+    IDENTIFIER      reduce using rule 46 (primitive_type_declaration -> STRING_TYPE .)
+    GT              reduce using rule 46 (primitive_type_declaration -> STRING_TYPE .)
 
 
 state 39
 
-    (48) primitive_type_declaration -> NUMBER_TYPE .
+    (47) primitive_type_declaration -> NUMBER_TYPE .
 
-    IDENTIFIER      reduce using rule 48 (primitive_type_declaration -> NUMBER_TYPE .)
-    GT              reduce using rule 48 (primitive_type_declaration -> NUMBER_TYPE .)
+    IDENTIFIER      reduce using rule 47 (primitive_type_declaration -> NUMBER_TYPE .)
+    GT              reduce using rule 47 (primitive_type_declaration -> NUMBER_TYPE .)
 
 
 state 40
 
-    (49) primitive_type_declaration -> BOOLEAN_TYPE .
+    (48) primitive_type_declaration -> BOOLEAN_TYPE .
 
-    IDENTIFIER      reduce using rule 49 (primitive_type_declaration -> BOOLEAN_TYPE .)
-    GT              reduce using rule 49 (primitive_type_declaration -> BOOLEAN_TYPE .)
+    IDENTIFIER      reduce using rule 48 (primitive_type_declaration -> BOOLEAN_TYPE .)
+    GT              reduce using rule 48 (primitive_type_declaration -> BOOLEAN_TYPE .)
 
 
 state 41
 
-    (50) primitive_type_declaration -> DATE_TYPE .
+    (49) primitive_type_declaration -> DATE_TYPE .
 
-    IDENTIFIER      reduce using rule 50 (primitive_type_declaration -> DATE_TYPE .)
-    GT              reduce using rule 50 (primitive_type_declaration -> DATE_TYPE .)
+    IDENTIFIER      reduce using rule 49 (primitive_type_declaration -> DATE_TYPE .)
+    GT              reduce using rule 49 (primitive_type_declaration -> DATE_TYPE .)
 
 
 state 42
 
-    (51) primitive_type_declaration -> LIST_TYPE . LT type_declaration GT
+    (50) primitive_type_declaration -> LIST_TYPE . LT type_declaration GT
 
     LT              shift and go to state 53
 
 
 state 43
 
-    (39) type_definition -> TYPE IDENTIFIER EXTENDS IDENTIFIER . LBRACE type_properties RBRACE
+    (38) type_definition -> TYPE IDENTIFIER EXTENDS IDENTIFIER . LBRACE type_properties RBRACE
 
     LBRACE          shift and go to state 54
 
 
 state 44
 
-    (21) instance -> INSTANCE IDENTIFIER OF IDENTIFIER . LBRACE instance_properties RBRACE
+    (20) instance -> INSTANCE IDENTIFIER OF IDENTIFIER . LBRACE instance_properties RBRACE
 
     LBRACE          shift and go to state 55
 
@@ -613,23 +612,23 @@ state 48
 
 state 49
 
-    (43) type_prop -> IDENTIFIER LBRACE . type_properties RBRACE
-    (40) type_properties -> . type_prop type_properties
-    (41) type_properties -> . empty
-    (42) type_prop -> . type_declaration IDENTIFIER
-    (43) type_prop -> . IDENTIFIER LBRACE type_properties RBRACE
-    (52) empty -> .
-    (44) type_declaration -> . primitive_type_declaration
-    (45) type_declaration -> . user_defined_type_declaration
-    (47) primitive_type_declaration -> . STRING_TYPE
-    (48) primitive_type_declaration -> . NUMBER_TYPE
-    (49) primitive_type_declaration -> . BOOLEAN_TYPE
-    (50) primitive_type_declaration -> . DATE_TYPE
-    (51) primitive_type_declaration -> . LIST_TYPE LT type_declaration GT
-    (46) user_defined_type_declaration -> . IDENTIFIER
+    (42) type_prop -> IDENTIFIER LBRACE . type_properties RBRACE
+    (39) type_properties -> . type_prop type_properties
+    (40) type_properties -> . empty
+    (41) type_prop -> . type_declaration IDENTIFIER
+    (42) type_prop -> . IDENTIFIER LBRACE type_properties RBRACE
+    (51) empty -> .
+    (43) type_declaration -> . primitive_type_declaration
+    (44) type_declaration -> . user_defined_type_declaration
+    (46) primitive_type_declaration -> . STRING_TYPE
+    (47) primitive_type_declaration -> . NUMBER_TYPE
+    (48) primitive_type_declaration -> . BOOLEAN_TYPE
+    (49) primitive_type_declaration -> . DATE_TYPE
+    (50) primitive_type_declaration -> . LIST_TYPE LT type_declaration GT
+    (45) user_defined_type_declaration -> . IDENTIFIER
 
     IDENTIFIER      shift and go to state 31
-    RBRACE          reduce using rule 52 (empty -> .)
+    RBRACE          reduce using rule 51 (empty -> .)
     STRING_TYPE     shift and go to state 38
     NUMBER_TYPE     shift and go to state 39
     BOOLEAN_TYPE    shift and go to state 40
@@ -645,46 +644,46 @@ state 49
 
 state 50
 
-    (38) type_definition -> TYPE IDENTIFIER LBRACE type_properties RBRACE .
+    (37) type_definition -> TYPE IDENTIFIER LBRACE type_properties RBRACE .
 
-    TYPE            reduce using rule 38 (type_definition -> TYPE IDENTIFIER LBRACE type_properties RBRACE .)
-    INSTANCE        reduce using rule 38 (type_definition -> TYPE IDENTIFIER LBRACE type_properties RBRACE .)
-    ENUM            reduce using rule 38 (type_definition -> TYPE IDENTIFIER LBRACE type_properties RBRACE .)
-    TRANSFORMATION  reduce using rule 38 (type_definition -> TYPE IDENTIFIER LBRACE type_properties RBRACE .)
-    RBRACE          reduce using rule 38 (type_definition -> TYPE IDENTIFIER LBRACE type_properties RBRACE .)
+    TYPE            reduce using rule 37 (type_definition -> TYPE IDENTIFIER LBRACE type_properties RBRACE .)
+    INSTANCE        reduce using rule 37 (type_definition -> TYPE IDENTIFIER LBRACE type_properties RBRACE .)
+    ENUM            reduce using rule 37 (type_definition -> TYPE IDENTIFIER LBRACE type_properties RBRACE .)
+    TRANSFORMATION  reduce using rule 37 (type_definition -> TYPE IDENTIFIER LBRACE type_properties RBRACE .)
+    RBRACE          reduce using rule 37 (type_definition -> TYPE IDENTIFIER LBRACE type_properties RBRACE .)
 
 
 state 51
 
-    (40) type_properties -> type_prop type_properties .
+    (39) type_properties -> type_prop type_properties .
 
-    RBRACE          reduce using rule 40 (type_properties -> type_prop type_properties .)
+    RBRACE          reduce using rule 39 (type_properties -> type_prop type_properties .)
 
 
 state 52
 
-    (42) type_prop -> type_declaration IDENTIFIER .
+    (41) type_prop -> type_declaration IDENTIFIER .
 
-    IDENTIFIER      reduce using rule 42 (type_prop -> type_declaration IDENTIFIER .)
-    STRING_TYPE     reduce using rule 42 (type_prop -> type_declaration IDENTIFIER .)
-    NUMBER_TYPE     reduce using rule 42 (type_prop -> type_declaration IDENTIFIER .)
-    BOOLEAN_TYPE    reduce using rule 42 (type_prop -> type_declaration IDENTIFIER .)
-    DATE_TYPE       reduce using rule 42 (type_prop -> type_declaration IDENTIFIER .)
-    LIST_TYPE       reduce using rule 42 (type_prop -> type_declaration IDENTIFIER .)
-    RBRACE          reduce using rule 42 (type_prop -> type_declaration IDENTIFIER .)
+    IDENTIFIER      reduce using rule 41 (type_prop -> type_declaration IDENTIFIER .)
+    STRING_TYPE     reduce using rule 41 (type_prop -> type_declaration IDENTIFIER .)
+    NUMBER_TYPE     reduce using rule 41 (type_prop -> type_declaration IDENTIFIER .)
+    BOOLEAN_TYPE    reduce using rule 41 (type_prop -> type_declaration IDENTIFIER .)
+    DATE_TYPE       reduce using rule 41 (type_prop -> type_declaration IDENTIFIER .)
+    LIST_TYPE       reduce using rule 41 (type_prop -> type_declaration IDENTIFIER .)
+    RBRACE          reduce using rule 41 (type_prop -> type_declaration IDENTIFIER .)
 
 
 state 53
 
-    (51) primitive_type_declaration -> LIST_TYPE LT . type_declaration GT
-    (44) type_declaration -> . primitive_type_declaration
-    (45) type_declaration -> . user_defined_type_declaration
-    (47) primitive_type_declaration -> . STRING_TYPE
-    (48) primitive_type_declaration -> . NUMBER_TYPE
-    (49) primitive_type_declaration -> . BOOLEAN_TYPE
-    (50) primitive_type_declaration -> . DATE_TYPE
-    (51) primitive_type_declaration -> . LIST_TYPE LT type_declaration GT
-    (46) user_defined_type_declaration -> . IDENTIFIER
+    (50) primitive_type_declaration -> LIST_TYPE LT . type_declaration GT
+    (43) type_declaration -> . primitive_type_declaration
+    (44) type_declaration -> . user_defined_type_declaration
+    (46) primitive_type_declaration -> . STRING_TYPE
+    (47) primitive_type_declaration -> . NUMBER_TYPE
+    (48) primitive_type_declaration -> . BOOLEAN_TYPE
+    (49) primitive_type_declaration -> . DATE_TYPE
+    (50) primitive_type_declaration -> . LIST_TYPE LT type_declaration GT
+    (45) user_defined_type_declaration -> . IDENTIFIER
 
     STRING_TYPE     shift and go to state 38
     NUMBER_TYPE     shift and go to state 39
@@ -699,23 +698,23 @@ state 53
 
 state 54
 
-    (39) type_definition -> TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE . type_properties RBRACE
-    (40) type_properties -> . type_prop type_properties
-    (41) type_properties -> . empty
-    (42) type_prop -> . type_declaration IDENTIFIER
-    (43) type_prop -> . IDENTIFIER LBRACE type_properties RBRACE
-    (52) empty -> .
-    (44) type_declaration -> . primitive_type_declaration
-    (45) type_declaration -> . user_defined_type_declaration
-    (47) primitive_type_declaration -> . STRING_TYPE
-    (48) primitive_type_declaration -> . NUMBER_TYPE
-    (49) primitive_type_declaration -> . BOOLEAN_TYPE
-    (50) primitive_type_declaration -> . DATE_TYPE
-    (51) primitive_type_declaration -> . LIST_TYPE LT type_declaration GT
-    (46) user_defined_type_declaration -> . IDENTIFIER
+    (38) type_definition -> TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE . type_properties RBRACE
+    (39) type_properties -> . type_prop type_properties
+    (40) type_properties -> . empty
+    (41) type_prop -> . type_declaration IDENTIFIER
+    (42) type_prop -> . IDENTIFIER LBRACE type_properties RBRACE
+    (51) empty -> .
+    (43) type_declaration -> . primitive_type_declaration
+    (44) type_declaration -> . user_defined_type_declaration
+    (46) primitive_type_declaration -> . STRING_TYPE
+    (47) primitive_type_declaration -> . NUMBER_TYPE
+    (48) primitive_type_declaration -> . BOOLEAN_TYPE
+    (49) primitive_type_declaration -> . DATE_TYPE
+    (50) primitive_type_declaration -> . LIST_TYPE LT type_declaration GT
+    (45) user_defined_type_declaration -> . IDENTIFIER
 
     IDENTIFIER      shift and go to state 31
-    RBRACE          reduce using rule 52 (empty -> .)
+    RBRACE          reduce using rule 51 (empty -> .)
     STRING_TYPE     shift and go to state 38
     NUMBER_TYPE     shift and go to state 39
     BOOLEAN_TYPE    shift and go to state 40
@@ -731,14 +730,14 @@ state 54
 
 state 55
 
-    (21) instance -> INSTANCE IDENTIFIER OF IDENTIFIER LBRACE . instance_properties RBRACE
-    (22) instance_properties -> . instance_property instance_properties
-    (23) instance_properties -> . empty
-    (24) instance_property -> . IDENTIFIER EQUALS value
-    (52) empty -> .
+    (20) instance -> INSTANCE IDENTIFIER OF IDENTIFIER LBRACE . instance_properties RBRACE
+    (21) instance_properties -> . instance_property instance_properties
+    (22) instance_properties -> . empty
+    (23) instance_property -> . IDENTIFIER EQUALS value
+    (51) empty -> .
 
     IDENTIFIER      shift and go to state 63
-    RBRACE          reduce using rule 52 (empty -> .)
+    RBRACE          reduce using rule 51 (empty -> .)
 
     instance_properties            shift and go to state 64
     instance_property              shift and go to state 65
@@ -776,56 +775,56 @@ state 58
 
 state 59
 
-    (43) type_prop -> IDENTIFIER LBRACE type_properties . RBRACE
+    (42) type_prop -> IDENTIFIER LBRACE type_properties . RBRACE
 
     RBRACE          shift and go to state 69
 
 
 state 60
 
-    (51) primitive_type_declaration -> LIST_TYPE LT type_declaration . GT
+    (50) primitive_type_declaration -> LIST_TYPE LT type_declaration . GT
 
     GT              shift and go to state 70
 
 
 state 61
 
-    (46) user_defined_type_declaration -> IDENTIFIER .
+    (45) user_defined_type_declaration -> IDENTIFIER .
 
-    GT              reduce using rule 46 (user_defined_type_declaration -> IDENTIFIER .)
+    GT              reduce using rule 45 (user_defined_type_declaration -> IDENTIFIER .)
 
 
 state 62
 
-    (39) type_definition -> TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties . RBRACE
+    (38) type_definition -> TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties . RBRACE
 
     RBRACE          shift and go to state 71
 
 
 state 63
 
-    (24) instance_property -> IDENTIFIER . EQUALS value
+    (23) instance_property -> IDENTIFIER . EQUALS value
 
     EQUALS          shift and go to state 72
 
 
 state 64
 
-    (21) instance -> INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties . RBRACE
+    (20) instance -> INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties . RBRACE
 
     RBRACE          shift and go to state 73
 
 
 state 65
 
-    (22) instance_properties -> instance_property . instance_properties
-    (22) instance_properties -> . instance_property instance_properties
-    (23) instance_properties -> . empty
-    (24) instance_property -> . IDENTIFIER EQUALS value
-    (52) empty -> .
+    (21) instance_properties -> instance_property . instance_properties
+    (21) instance_properties -> . instance_property instance_properties
+    (22) instance_properties -> . empty
+    (23) instance_property -> . IDENTIFIER EQUALS value
+    (51) empty -> .
 
     IDENTIFIER      shift and go to state 63
-    RBRACE          reduce using rule 52 (empty -> .)
+    RBRACE          reduce using rule 51 (empty -> .)
 
     instance_property              shift and go to state 65
     instance_properties            shift and go to state 74
@@ -833,9 +832,9 @@ state 65
 
 state 66
 
-    (23) instance_properties -> empty .
+    (22) instance_properties -> empty .
 
-    RBRACE          reduce using rule 23 (instance_properties -> empty .)
+    RBRACE          reduce using rule 22 (instance_properties -> empty .)
 
 
 state 67
@@ -850,86 +849,85 @@ state 68
     (15) transformation -> TRANSFORMATION IDENTIFIER IDENTIFIER ARROW IDENTIFIER LBRACE . transformation_properties RBRACE
     (16) transformation_properties -> . transformation_property transformation_properties
     (17) transformation_properties -> . empty
-    (18) transformation_property -> . IDENTIFIER ARROW IDENTIFIER
-    (19) transformation_property -> . value ARROW IDENTIFIER
-    (20) transformation_property -> . IDENTIFIER ARROW IDENTIFIER USING IDENTIFIER
-    (52) empty -> .
-    (25) value -> . simple_value
-    (26) value -> . complex_value
-    (27) value -> . list_value
-    (28) value -> . reference
-    (33) simple_value -> . STRING
-    (34) simple_value -> . NUMBER
-    (35) simple_value -> . BOOLEAN
-    (36) simple_value -> . DATE
-    (37) complex_value -> . LBRACE instance_properties RBRACE
-    (29) list_value -> . LBRACKET list_values RBRACKET
-    (32) reference -> . IDENTIFIER
+    (18) transformation_property -> . value ARROW IDENTIFIER
+    (19) transformation_property -> . value ARROW IDENTIFIER USING IDENTIFIER
+    (51) empty -> .
+    (24) value -> . simple_value
+    (25) value -> . record_value
+    (26) value -> . list_value
+    (27) value -> . reference
+    (32) simple_value -> . STRING
+    (33) simple_value -> . NUMBER
+    (34) simple_value -> . BOOLEAN
+    (35) simple_value -> . DATE
+    (36) record_value -> . LBRACE instance_properties RBRACE
+    (28) list_value -> . LBRACKET list_values RBRACKET
+    (31) reference -> . IDENTIFIER
 
-    IDENTIFIER      shift and go to state 75
-    RBRACE          reduce using rule 52 (empty -> .)
+    RBRACE          reduce using rule 51 (empty -> .)
     STRING          shift and go to state 85
     NUMBER          shift and go to state 86
     BOOLEAN         shift and go to state 87
     DATE            shift and go to state 88
     LBRACE          shift and go to state 76
     LBRACKET        shift and go to state 89
+    IDENTIFIER      shift and go to state 75
 
     transformation_properties      shift and go to state 77
     transformation_property        shift and go to state 78
     empty                          shift and go to state 79
     value                          shift and go to state 80
     simple_value                   shift and go to state 81
-    complex_value                  shift and go to state 82
+    record_value                   shift and go to state 82
     list_value                     shift and go to state 83
     reference                      shift and go to state 84
 
 state 69
 
-    (43) type_prop -> IDENTIFIER LBRACE type_properties RBRACE .
+    (42) type_prop -> IDENTIFIER LBRACE type_properties RBRACE .
 
-    IDENTIFIER      reduce using rule 43 (type_prop -> IDENTIFIER LBRACE type_properties RBRACE .)
-    STRING_TYPE     reduce using rule 43 (type_prop -> IDENTIFIER LBRACE type_properties RBRACE .)
-    NUMBER_TYPE     reduce using rule 43 (type_prop -> IDENTIFIER LBRACE type_properties RBRACE .)
-    BOOLEAN_TYPE    reduce using rule 43 (type_prop -> IDENTIFIER LBRACE type_properties RBRACE .)
-    DATE_TYPE       reduce using rule 43 (type_prop -> IDENTIFIER LBRACE type_properties RBRACE .)
-    LIST_TYPE       reduce using rule 43 (type_prop -> IDENTIFIER LBRACE type_properties RBRACE .)
-    RBRACE          reduce using rule 43 (type_prop -> IDENTIFIER LBRACE type_properties RBRACE .)
+    IDENTIFIER      reduce using rule 42 (type_prop -> IDENTIFIER LBRACE type_properties RBRACE .)
+    STRING_TYPE     reduce using rule 42 (type_prop -> IDENTIFIER LBRACE type_properties RBRACE .)
+    NUMBER_TYPE     reduce using rule 42 (type_prop -> IDENTIFIER LBRACE type_properties RBRACE .)
+    BOOLEAN_TYPE    reduce using rule 42 (type_prop -> IDENTIFIER LBRACE type_properties RBRACE .)
+    DATE_TYPE       reduce using rule 42 (type_prop -> IDENTIFIER LBRACE type_properties RBRACE .)
+    LIST_TYPE       reduce using rule 42 (type_prop -> IDENTIFIER LBRACE type_properties RBRACE .)
+    RBRACE          reduce using rule 42 (type_prop -> IDENTIFIER LBRACE type_properties RBRACE .)
 
 
 state 70
 
-    (51) primitive_type_declaration -> LIST_TYPE LT type_declaration GT .
+    (50) primitive_type_declaration -> LIST_TYPE LT type_declaration GT .
 
-    IDENTIFIER      reduce using rule 51 (primitive_type_declaration -> LIST_TYPE LT type_declaration GT .)
-    GT              reduce using rule 51 (primitive_type_declaration -> LIST_TYPE LT type_declaration GT .)
+    IDENTIFIER      reduce using rule 50 (primitive_type_declaration -> LIST_TYPE LT type_declaration GT .)
+    GT              reduce using rule 50 (primitive_type_declaration -> LIST_TYPE LT type_declaration GT .)
 
 
 state 71
 
-    (39) type_definition -> TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties RBRACE .
+    (38) type_definition -> TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties RBRACE .
 
-    TYPE            reduce using rule 39 (type_definition -> TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties RBRACE .)
-    INSTANCE        reduce using rule 39 (type_definition -> TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties RBRACE .)
-    ENUM            reduce using rule 39 (type_definition -> TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties RBRACE .)
-    TRANSFORMATION  reduce using rule 39 (type_definition -> TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties RBRACE .)
-    RBRACE          reduce using rule 39 (type_definition -> TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties RBRACE .)
+    TYPE            reduce using rule 38 (type_definition -> TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties RBRACE .)
+    INSTANCE        reduce using rule 38 (type_definition -> TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties RBRACE .)
+    ENUM            reduce using rule 38 (type_definition -> TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties RBRACE .)
+    TRANSFORMATION  reduce using rule 38 (type_definition -> TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties RBRACE .)
+    RBRACE          reduce using rule 38 (type_definition -> TYPE IDENTIFIER EXTENDS IDENTIFIER LBRACE type_properties RBRACE .)
 
 
 state 72
 
-    (24) instance_property -> IDENTIFIER EQUALS . value
-    (25) value -> . simple_value
-    (26) value -> . complex_value
-    (27) value -> . list_value
-    (28) value -> . reference
-    (33) simple_value -> . STRING
-    (34) simple_value -> . NUMBER
-    (35) simple_value -> . BOOLEAN
-    (36) simple_value -> . DATE
-    (37) complex_value -> . LBRACE instance_properties RBRACE
-    (29) list_value -> . LBRACKET list_values RBRACKET
-    (32) reference -> . IDENTIFIER
+    (23) instance_property -> IDENTIFIER EQUALS . value
+    (24) value -> . simple_value
+    (25) value -> . record_value
+    (26) value -> . list_value
+    (27) value -> . reference
+    (32) simple_value -> . STRING
+    (33) simple_value -> . NUMBER
+    (34) simple_value -> . BOOLEAN
+    (35) simple_value -> . DATE
+    (36) record_value -> . LBRACE instance_properties RBRACE
+    (28) list_value -> . LBRACKET list_values RBRACKET
+    (31) reference -> . IDENTIFIER
 
     STRING          shift and go to state 85
     NUMBER          shift and go to state 86
@@ -937,56 +935,55 @@ state 72
     DATE            shift and go to state 88
     LBRACE          shift and go to state 76
     LBRACKET        shift and go to state 89
-    IDENTIFIER      shift and go to state 90
+    IDENTIFIER      shift and go to state 75
 
-    value                          shift and go to state 91
+    value                          shift and go to state 90
     simple_value                   shift and go to state 81
-    complex_value                  shift and go to state 82
+    record_value                   shift and go to state 82
     list_value                     shift and go to state 83
     reference                      shift and go to state 84
 
 state 73
 
-    (21) instance -> INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACE .
+    (20) instance -> INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACE .
 
-    TYPE            reduce using rule 21 (instance -> INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACE .)
-    INSTANCE        reduce using rule 21 (instance -> INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACE .)
-    ENUM            reduce using rule 21 (instance -> INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACE .)
-    TRANSFORMATION  reduce using rule 21 (instance -> INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACE .)
-    RBRACE          reduce using rule 21 (instance -> INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACE .)
+    TYPE            reduce using rule 20 (instance -> INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACE .)
+    INSTANCE        reduce using rule 20 (instance -> INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACE .)
+    ENUM            reduce using rule 20 (instance -> INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACE .)
+    TRANSFORMATION  reduce using rule 20 (instance -> INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACE .)
+    RBRACE          reduce using rule 20 (instance -> INSTANCE IDENTIFIER OF IDENTIFIER LBRACE instance_properties RBRACE .)
 
 
 state 74
 
-    (22) instance_properties -> instance_property instance_properties .
+    (21) instance_properties -> instance_property instance_properties .
 
-    RBRACE          reduce using rule 22 (instance_properties -> instance_property instance_properties .)
+    RBRACE          reduce using rule 21 (instance_properties -> instance_property instance_properties .)
 
 
 state 75
 
-    (18) transformation_property -> IDENTIFIER . ARROW IDENTIFIER
-    (20) transformation_property -> IDENTIFIER . ARROW IDENTIFIER USING IDENTIFIER
-    (32) reference -> IDENTIFIER .
+    (31) reference -> IDENTIFIER .
 
-  ! shift/reduce conflict for ARROW resolved as shift
-    ARROW           shift and go to state 92
-
-  ! ARROW           [ reduce using rule 32 (reference -> IDENTIFIER .) ]
+    ARROW           reduce using rule 31 (reference -> IDENTIFIER .)
+    IDENTIFIER      reduce using rule 31 (reference -> IDENTIFIER .)
+    RBRACE          reduce using rule 31 (reference -> IDENTIFIER .)
+    COMMA           reduce using rule 31 (reference -> IDENTIFIER .)
+    RBRACKET        reduce using rule 31 (reference -> IDENTIFIER .)
 
 
 state 76
 
-    (37) complex_value -> LBRACE . instance_properties RBRACE
-    (22) instance_properties -> . instance_property instance_properties
-    (23) instance_properties -> . empty
-    (24) instance_property -> . IDENTIFIER EQUALS value
-    (52) empty -> .
+    (36) record_value -> LBRACE . instance_properties RBRACE
+    (21) instance_properties -> . instance_property instance_properties
+    (22) instance_properties -> . empty
+    (23) instance_property -> . IDENTIFIER EQUALS value
+    (51) empty -> .
 
     IDENTIFIER      shift and go to state 63
-    RBRACE          reduce using rule 52 (empty -> .)
+    RBRACE          reduce using rule 51 (empty -> .)
 
-    instance_properties            shift and go to state 93
+    instance_properties            shift and go to state 91
     instance_property              shift and go to state 65
     empty                          shift and go to state 66
 
@@ -994,7 +991,7 @@ state 77
 
     (15) transformation -> TRANSFORMATION IDENTIFIER IDENTIFIER ARROW IDENTIFIER LBRACE transformation_properties . RBRACE
 
-    RBRACE          shift and go to state 94
+    RBRACE          shift and go to state 92
 
 
 state 78
@@ -1002,37 +999,36 @@ state 78
     (16) transformation_properties -> transformation_property . transformation_properties
     (16) transformation_properties -> . transformation_property transformation_properties
     (17) transformation_properties -> . empty
-    (18) transformation_property -> . IDENTIFIER ARROW IDENTIFIER
-    (19) transformation_property -> . value ARROW IDENTIFIER
-    (20) transformation_property -> . IDENTIFIER ARROW IDENTIFIER USING IDENTIFIER
-    (52) empty -> .
-    (25) value -> . simple_value
-    (26) value -> . complex_value
-    (27) value -> . list_value
-    (28) value -> . reference
-    (33) simple_value -> . STRING
-    (34) simple_value -> . NUMBER
-    (35) simple_value -> . BOOLEAN
-    (36) simple_value -> . DATE
-    (37) complex_value -> . LBRACE instance_properties RBRACE
-    (29) list_value -> . LBRACKET list_values RBRACKET
-    (32) reference -> . IDENTIFIER
+    (18) transformation_property -> . value ARROW IDENTIFIER
+    (19) transformation_property -> . value ARROW IDENTIFIER USING IDENTIFIER
+    (51) empty -> .
+    (24) value -> . simple_value
+    (25) value -> . record_value
+    (26) value -> . list_value
+    (27) value -> . reference
+    (32) simple_value -> . STRING
+    (33) simple_value -> . NUMBER
+    (34) simple_value -> . BOOLEAN
+    (35) simple_value -> . DATE
+    (36) record_value -> . LBRACE instance_properties RBRACE
+    (28) list_value -> . LBRACKET list_values RBRACKET
+    (31) reference -> . IDENTIFIER
 
-    IDENTIFIER      shift and go to state 75
-    RBRACE          reduce using rule 52 (empty -> .)
+    RBRACE          reduce using rule 51 (empty -> .)
     STRING          shift and go to state 85
     NUMBER          shift and go to state 86
     BOOLEAN         shift and go to state 87
     DATE            shift and go to state 88
     LBRACE          shift and go to state 76
     LBRACKET        shift and go to state 89
+    IDENTIFIER      shift and go to state 75
 
     transformation_property        shift and go to state 78
-    transformation_properties      shift and go to state 95
+    transformation_properties      shift and go to state 93
     empty                          shift and go to state 79
     value                          shift and go to state 80
     simple_value                   shift and go to state 81
-    complex_value                  shift and go to state 82
+    record_value                   shift and go to state 82
     list_value                     shift and go to state 83
     reference                      shift and go to state 84
 
@@ -1045,115 +1041,116 @@ state 79
 
 state 80
 
-    (19) transformation_property -> value . ARROW IDENTIFIER
+    (18) transformation_property -> value . ARROW IDENTIFIER
+    (19) transformation_property -> value . ARROW IDENTIFIER USING IDENTIFIER
 
-    ARROW           shift and go to state 96
+    ARROW           shift and go to state 94
 
 
 state 81
 
-    (25) value -> simple_value .
+    (24) value -> simple_value .
 
-    ARROW           reduce using rule 25 (value -> simple_value .)
-    IDENTIFIER      reduce using rule 25 (value -> simple_value .)
-    RBRACE          reduce using rule 25 (value -> simple_value .)
-    COMMA           reduce using rule 25 (value -> simple_value .)
-    RBRACKET        reduce using rule 25 (value -> simple_value .)
+    ARROW           reduce using rule 24 (value -> simple_value .)
+    IDENTIFIER      reduce using rule 24 (value -> simple_value .)
+    RBRACE          reduce using rule 24 (value -> simple_value .)
+    COMMA           reduce using rule 24 (value -> simple_value .)
+    RBRACKET        reduce using rule 24 (value -> simple_value .)
 
 
 state 82
 
-    (26) value -> complex_value .
+    (25) value -> record_value .
 
-    ARROW           reduce using rule 26 (value -> complex_value .)
-    IDENTIFIER      reduce using rule 26 (value -> complex_value .)
-    RBRACE          reduce using rule 26 (value -> complex_value .)
-    COMMA           reduce using rule 26 (value -> complex_value .)
-    RBRACKET        reduce using rule 26 (value -> complex_value .)
+    ARROW           reduce using rule 25 (value -> record_value .)
+    IDENTIFIER      reduce using rule 25 (value -> record_value .)
+    RBRACE          reduce using rule 25 (value -> record_value .)
+    COMMA           reduce using rule 25 (value -> record_value .)
+    RBRACKET        reduce using rule 25 (value -> record_value .)
 
 
 state 83
 
-    (27) value -> list_value .
+    (26) value -> list_value .
 
-    ARROW           reduce using rule 27 (value -> list_value .)
-    IDENTIFIER      reduce using rule 27 (value -> list_value .)
-    RBRACE          reduce using rule 27 (value -> list_value .)
-    COMMA           reduce using rule 27 (value -> list_value .)
-    RBRACKET        reduce using rule 27 (value -> list_value .)
+    ARROW           reduce using rule 26 (value -> list_value .)
+    IDENTIFIER      reduce using rule 26 (value -> list_value .)
+    RBRACE          reduce using rule 26 (value -> list_value .)
+    COMMA           reduce using rule 26 (value -> list_value .)
+    RBRACKET        reduce using rule 26 (value -> list_value .)
 
 
 state 84
 
-    (28) value -> reference .
+    (27) value -> reference .
 
-    ARROW           reduce using rule 28 (value -> reference .)
-    IDENTIFIER      reduce using rule 28 (value -> reference .)
-    RBRACE          reduce using rule 28 (value -> reference .)
-    COMMA           reduce using rule 28 (value -> reference .)
-    RBRACKET        reduce using rule 28 (value -> reference .)
+    ARROW           reduce using rule 27 (value -> reference .)
+    IDENTIFIER      reduce using rule 27 (value -> reference .)
+    RBRACE          reduce using rule 27 (value -> reference .)
+    COMMA           reduce using rule 27 (value -> reference .)
+    RBRACKET        reduce using rule 27 (value -> reference .)
 
 
 state 85
 
-    (33) simple_value -> STRING .
+    (32) simple_value -> STRING .
 
-    ARROW           reduce using rule 33 (simple_value -> STRING .)
-    IDENTIFIER      reduce using rule 33 (simple_value -> STRING .)
-    RBRACE          reduce using rule 33 (simple_value -> STRING .)
-    COMMA           reduce using rule 33 (simple_value -> STRING .)
-    RBRACKET        reduce using rule 33 (simple_value -> STRING .)
+    ARROW           reduce using rule 32 (simple_value -> STRING .)
+    IDENTIFIER      reduce using rule 32 (simple_value -> STRING .)
+    RBRACE          reduce using rule 32 (simple_value -> STRING .)
+    COMMA           reduce using rule 32 (simple_value -> STRING .)
+    RBRACKET        reduce using rule 32 (simple_value -> STRING .)
 
 
 state 86
 
-    (34) simple_value -> NUMBER .
+    (33) simple_value -> NUMBER .
 
-    ARROW           reduce using rule 34 (simple_value -> NUMBER .)
-    IDENTIFIER      reduce using rule 34 (simple_value -> NUMBER .)
-    RBRACE          reduce using rule 34 (simple_value -> NUMBER .)
-    COMMA           reduce using rule 34 (simple_value -> NUMBER .)
-    RBRACKET        reduce using rule 34 (simple_value -> NUMBER .)
+    ARROW           reduce using rule 33 (simple_value -> NUMBER .)
+    IDENTIFIER      reduce using rule 33 (simple_value -> NUMBER .)
+    RBRACE          reduce using rule 33 (simple_value -> NUMBER .)
+    COMMA           reduce using rule 33 (simple_value -> NUMBER .)
+    RBRACKET        reduce using rule 33 (simple_value -> NUMBER .)
 
 
 state 87
 
-    (35) simple_value -> BOOLEAN .
+    (34) simple_value -> BOOLEAN .
 
-    ARROW           reduce using rule 35 (simple_value -> BOOLEAN .)
-    IDENTIFIER      reduce using rule 35 (simple_value -> BOOLEAN .)
-    RBRACE          reduce using rule 35 (simple_value -> BOOLEAN .)
-    COMMA           reduce using rule 35 (simple_value -> BOOLEAN .)
-    RBRACKET        reduce using rule 35 (simple_value -> BOOLEAN .)
+    ARROW           reduce using rule 34 (simple_value -> BOOLEAN .)
+    IDENTIFIER      reduce using rule 34 (simple_value -> BOOLEAN .)
+    RBRACE          reduce using rule 34 (simple_value -> BOOLEAN .)
+    COMMA           reduce using rule 34 (simple_value -> BOOLEAN .)
+    RBRACKET        reduce using rule 34 (simple_value -> BOOLEAN .)
 
 
 state 88
 
-    (36) simple_value -> DATE .
+    (35) simple_value -> DATE .
 
-    ARROW           reduce using rule 36 (simple_value -> DATE .)
-    IDENTIFIER      reduce using rule 36 (simple_value -> DATE .)
-    RBRACE          reduce using rule 36 (simple_value -> DATE .)
-    COMMA           reduce using rule 36 (simple_value -> DATE .)
-    RBRACKET        reduce using rule 36 (simple_value -> DATE .)
+    ARROW           reduce using rule 35 (simple_value -> DATE .)
+    IDENTIFIER      reduce using rule 35 (simple_value -> DATE .)
+    RBRACE          reduce using rule 35 (simple_value -> DATE .)
+    COMMA           reduce using rule 35 (simple_value -> DATE .)
+    RBRACKET        reduce using rule 35 (simple_value -> DATE .)
 
 
 state 89
 
-    (29) list_value -> LBRACKET . list_values RBRACKET
-    (30) list_values -> . value COMMA list_values
-    (31) list_values -> . value
-    (25) value -> . simple_value
-    (26) value -> . complex_value
-    (27) value -> . list_value
-    (28) value -> . reference
-    (33) simple_value -> . STRING
-    (34) simple_value -> . NUMBER
-    (35) simple_value -> . BOOLEAN
-    (36) simple_value -> . DATE
-    (37) complex_value -> . LBRACE instance_properties RBRACE
-    (29) list_value -> . LBRACKET list_values RBRACKET
-    (32) reference -> . IDENTIFIER
+    (28) list_value -> LBRACKET . list_values RBRACKET
+    (29) list_values -> . value COMMA list_values
+    (30) list_values -> . value
+    (24) value -> . simple_value
+    (25) value -> . record_value
+    (26) value -> . list_value
+    (27) value -> . reference
+    (32) simple_value -> . STRING
+    (33) simple_value -> . NUMBER
+    (34) simple_value -> . BOOLEAN
+    (35) simple_value -> . DATE
+    (36) record_value -> . LBRACE instance_properties RBRACE
+    (28) list_value -> . LBRACKET list_values RBRACKET
+    (31) reference -> . IDENTIFIER
 
     STRING          shift and go to state 85
     NUMBER          shift and go to state 86
@@ -1161,49 +1158,31 @@ state 89
     DATE            shift and go to state 88
     LBRACE          shift and go to state 76
     LBRACKET        shift and go to state 89
-    IDENTIFIER      shift and go to state 90
+    IDENTIFIER      shift and go to state 75
 
-    list_values                    shift and go to state 97
-    value                          shift and go to state 98
+    list_values                    shift and go to state 95
+    value                          shift and go to state 96
     simple_value                   shift and go to state 81
-    complex_value                  shift and go to state 82
+    record_value                   shift and go to state 82
     list_value                     shift and go to state 83
     reference                      shift and go to state 84
 
 state 90
 
-    (32) reference -> IDENTIFIER .
+    (23) instance_property -> IDENTIFIER EQUALS value .
 
-    IDENTIFIER      reduce using rule 32 (reference -> IDENTIFIER .)
-    RBRACE          reduce using rule 32 (reference -> IDENTIFIER .)
-    COMMA           reduce using rule 32 (reference -> IDENTIFIER .)
-    RBRACKET        reduce using rule 32 (reference -> IDENTIFIER .)
+    IDENTIFIER      reduce using rule 23 (instance_property -> IDENTIFIER EQUALS value .)
+    RBRACE          reduce using rule 23 (instance_property -> IDENTIFIER EQUALS value .)
 
 
 state 91
 
-    (24) instance_property -> IDENTIFIER EQUALS value .
+    (36) record_value -> LBRACE instance_properties . RBRACE
 
-    IDENTIFIER      reduce using rule 24 (instance_property -> IDENTIFIER EQUALS value .)
-    RBRACE          reduce using rule 24 (instance_property -> IDENTIFIER EQUALS value .)
+    RBRACE          shift and go to state 97
 
 
 state 92
-
-    (18) transformation_property -> IDENTIFIER ARROW . IDENTIFIER
-    (20) transformation_property -> IDENTIFIER ARROW . IDENTIFIER USING IDENTIFIER
-
-    IDENTIFIER      shift and go to state 99
-
-
-state 93
-
-    (37) complex_value -> LBRACE instance_properties . RBRACE
-
-    RBRACE          shift and go to state 100
-
-
-state 94
 
     (15) transformation -> TRANSFORMATION IDENTIFIER IDENTIFIER ARROW IDENTIFIER LBRACE transformation_properties RBRACE .
 
@@ -1214,104 +1193,91 @@ state 94
     RBRACE          reduce using rule 15 (transformation -> TRANSFORMATION IDENTIFIER IDENTIFIER ARROW IDENTIFIER LBRACE transformation_properties RBRACE .)
 
 
-state 95
+state 93
 
     (16) transformation_properties -> transformation_property transformation_properties .
 
     RBRACE          reduce using rule 16 (transformation_properties -> transformation_property transformation_properties .)
 
 
+state 94
+
+    (18) transformation_property -> value ARROW . IDENTIFIER
+    (19) transformation_property -> value ARROW . IDENTIFIER USING IDENTIFIER
+
+    IDENTIFIER      shift and go to state 98
+
+
+state 95
+
+    (28) list_value -> LBRACKET list_values . RBRACKET
+
+    RBRACKET        shift and go to state 99
+
+
 state 96
 
-    (19) transformation_property -> value ARROW . IDENTIFIER
+    (29) list_values -> value . COMMA list_values
+    (30) list_values -> value .
 
-    IDENTIFIER      shift and go to state 101
+    COMMA           shift and go to state 100
+    RBRACKET        reduce using rule 30 (list_values -> value .)
 
 
 state 97
 
-    (29) list_value -> LBRACKET list_values . RBRACKET
+    (36) record_value -> LBRACE instance_properties RBRACE .
 
-    RBRACKET        shift and go to state 102
+    ARROW           reduce using rule 36 (record_value -> LBRACE instance_properties RBRACE .)
+    IDENTIFIER      reduce using rule 36 (record_value -> LBRACE instance_properties RBRACE .)
+    RBRACE          reduce using rule 36 (record_value -> LBRACE instance_properties RBRACE .)
+    COMMA           reduce using rule 36 (record_value -> LBRACE instance_properties RBRACE .)
+    RBRACKET        reduce using rule 36 (record_value -> LBRACE instance_properties RBRACE .)
 
 
 state 98
 
-    (30) list_values -> value . COMMA list_values
-    (31) list_values -> value .
+    (18) transformation_property -> value ARROW IDENTIFIER .
+    (19) transformation_property -> value ARROW IDENTIFIER . USING IDENTIFIER
 
-    COMMA           shift and go to state 103
-    RBRACKET        reduce using rule 31 (list_values -> value .)
+    STRING          reduce using rule 18 (transformation_property -> value ARROW IDENTIFIER .)
+    NUMBER          reduce using rule 18 (transformation_property -> value ARROW IDENTIFIER .)
+    BOOLEAN         reduce using rule 18 (transformation_property -> value ARROW IDENTIFIER .)
+    DATE            reduce using rule 18 (transformation_property -> value ARROW IDENTIFIER .)
+    LBRACE          reduce using rule 18 (transformation_property -> value ARROW IDENTIFIER .)
+    LBRACKET        reduce using rule 18 (transformation_property -> value ARROW IDENTIFIER .)
+    IDENTIFIER      reduce using rule 18 (transformation_property -> value ARROW IDENTIFIER .)
+    RBRACE          reduce using rule 18 (transformation_property -> value ARROW IDENTIFIER .)
+    USING           shift and go to state 101
 
 
 state 99
 
-    (18) transformation_property -> IDENTIFIER ARROW IDENTIFIER .
-    (20) transformation_property -> IDENTIFIER ARROW IDENTIFIER . USING IDENTIFIER
+    (28) list_value -> LBRACKET list_values RBRACKET .
 
-    IDENTIFIER      reduce using rule 18 (transformation_property -> IDENTIFIER ARROW IDENTIFIER .)
-    STRING          reduce using rule 18 (transformation_property -> IDENTIFIER ARROW IDENTIFIER .)
-    NUMBER          reduce using rule 18 (transformation_property -> IDENTIFIER ARROW IDENTIFIER .)
-    BOOLEAN         reduce using rule 18 (transformation_property -> IDENTIFIER ARROW IDENTIFIER .)
-    DATE            reduce using rule 18 (transformation_property -> IDENTIFIER ARROW IDENTIFIER .)
-    LBRACE          reduce using rule 18 (transformation_property -> IDENTIFIER ARROW IDENTIFIER .)
-    LBRACKET        reduce using rule 18 (transformation_property -> IDENTIFIER ARROW IDENTIFIER .)
-    RBRACE          reduce using rule 18 (transformation_property -> IDENTIFIER ARROW IDENTIFIER .)
-    USING           shift and go to state 104
+    ARROW           reduce using rule 28 (list_value -> LBRACKET list_values RBRACKET .)
+    IDENTIFIER      reduce using rule 28 (list_value -> LBRACKET list_values RBRACKET .)
+    RBRACE          reduce using rule 28 (list_value -> LBRACKET list_values RBRACKET .)
+    COMMA           reduce using rule 28 (list_value -> LBRACKET list_values RBRACKET .)
+    RBRACKET        reduce using rule 28 (list_value -> LBRACKET list_values RBRACKET .)
 
 
 state 100
 
-    (37) complex_value -> LBRACE instance_properties RBRACE .
-
-    ARROW           reduce using rule 37 (complex_value -> LBRACE instance_properties RBRACE .)
-    IDENTIFIER      reduce using rule 37 (complex_value -> LBRACE instance_properties RBRACE .)
-    RBRACE          reduce using rule 37 (complex_value -> LBRACE instance_properties RBRACE .)
-    COMMA           reduce using rule 37 (complex_value -> LBRACE instance_properties RBRACE .)
-    RBRACKET        reduce using rule 37 (complex_value -> LBRACE instance_properties RBRACE .)
-
-
-state 101
-
-    (19) transformation_property -> value ARROW IDENTIFIER .
-
-    IDENTIFIER      reduce using rule 19 (transformation_property -> value ARROW IDENTIFIER .)
-    STRING          reduce using rule 19 (transformation_property -> value ARROW IDENTIFIER .)
-    NUMBER          reduce using rule 19 (transformation_property -> value ARROW IDENTIFIER .)
-    BOOLEAN         reduce using rule 19 (transformation_property -> value ARROW IDENTIFIER .)
-    DATE            reduce using rule 19 (transformation_property -> value ARROW IDENTIFIER .)
-    LBRACE          reduce using rule 19 (transformation_property -> value ARROW IDENTIFIER .)
-    LBRACKET        reduce using rule 19 (transformation_property -> value ARROW IDENTIFIER .)
-    RBRACE          reduce using rule 19 (transformation_property -> value ARROW IDENTIFIER .)
-
-
-state 102
-
-    (29) list_value -> LBRACKET list_values RBRACKET .
-
-    ARROW           reduce using rule 29 (list_value -> LBRACKET list_values RBRACKET .)
-    IDENTIFIER      reduce using rule 29 (list_value -> LBRACKET list_values RBRACKET .)
-    RBRACE          reduce using rule 29 (list_value -> LBRACKET list_values RBRACKET .)
-    COMMA           reduce using rule 29 (list_value -> LBRACKET list_values RBRACKET .)
-    RBRACKET        reduce using rule 29 (list_value -> LBRACKET list_values RBRACKET .)
-
-
-state 103
-
-    (30) list_values -> value COMMA . list_values
-    (30) list_values -> . value COMMA list_values
-    (31) list_values -> . value
-    (25) value -> . simple_value
-    (26) value -> . complex_value
-    (27) value -> . list_value
-    (28) value -> . reference
-    (33) simple_value -> . STRING
-    (34) simple_value -> . NUMBER
-    (35) simple_value -> . BOOLEAN
-    (36) simple_value -> . DATE
-    (37) complex_value -> . LBRACE instance_properties RBRACE
-    (29) list_value -> . LBRACKET list_values RBRACKET
-    (32) reference -> . IDENTIFIER
+    (29) list_values -> value COMMA . list_values
+    (29) list_values -> . value COMMA list_values
+    (30) list_values -> . value
+    (24) value -> . simple_value
+    (25) value -> . record_value
+    (26) value -> . list_value
+    (27) value -> . reference
+    (32) simple_value -> . STRING
+    (33) simple_value -> . NUMBER
+    (34) simple_value -> . BOOLEAN
+    (35) simple_value -> . DATE
+    (36) record_value -> . LBRACE instance_properties RBRACE
+    (28) list_value -> . LBRACKET list_values RBRACKET
+    (31) reference -> . IDENTIFIER
 
     STRING          shift and go to state 85
     NUMBER          shift and go to state 86
@@ -1319,43 +1285,39 @@ state 103
     DATE            shift and go to state 88
     LBRACE          shift and go to state 76
     LBRACKET        shift and go to state 89
-    IDENTIFIER      shift and go to state 90
+    IDENTIFIER      shift and go to state 75
 
-    value                          shift and go to state 98
-    list_values                    shift and go to state 105
+    value                          shift and go to state 96
+    list_values                    shift and go to state 102
     simple_value                   shift and go to state 81
-    complex_value                  shift and go to state 82
+    record_value                   shift and go to state 82
     list_value                     shift and go to state 83
     reference                      shift and go to state 84
 
-state 104
+state 101
 
-    (20) transformation_property -> IDENTIFIER ARROW IDENTIFIER USING . IDENTIFIER
+    (19) transformation_property -> value ARROW IDENTIFIER USING . IDENTIFIER
 
-    IDENTIFIER      shift and go to state 106
-
-
-state 105
-
-    (30) list_values -> value COMMA list_values .
-
-    RBRACKET        reduce using rule 30 (list_values -> value COMMA list_values .)
+    IDENTIFIER      shift and go to state 103
 
 
-state 106
+state 102
 
-    (20) transformation_property -> IDENTIFIER ARROW IDENTIFIER USING IDENTIFIER .
+    (29) list_values -> value COMMA list_values .
 
-    IDENTIFIER      reduce using rule 20 (transformation_property -> IDENTIFIER ARROW IDENTIFIER USING IDENTIFIER .)
-    STRING          reduce using rule 20 (transformation_property -> IDENTIFIER ARROW IDENTIFIER USING IDENTIFIER .)
-    NUMBER          reduce using rule 20 (transformation_property -> IDENTIFIER ARROW IDENTIFIER USING IDENTIFIER .)
-    BOOLEAN         reduce using rule 20 (transformation_property -> IDENTIFIER ARROW IDENTIFIER USING IDENTIFIER .)
-    DATE            reduce using rule 20 (transformation_property -> IDENTIFIER ARROW IDENTIFIER USING IDENTIFIER .)
-    LBRACE          reduce using rule 20 (transformation_property -> IDENTIFIER ARROW IDENTIFIER USING IDENTIFIER .)
-    LBRACKET        reduce using rule 20 (transformation_property -> IDENTIFIER ARROW IDENTIFIER USING IDENTIFIER .)
-    RBRACE          reduce using rule 20 (transformation_property -> IDENTIFIER ARROW IDENTIFIER USING IDENTIFIER .)
+    RBRACKET        reduce using rule 29 (list_values -> value COMMA list_values .)
 
-WARNING: 
-WARNING: Conflicts:
-WARNING: 
-WARNING: shift/reduce conflict for ARROW in state 75 resolved as shift
+
+state 103
+
+    (19) transformation_property -> value ARROW IDENTIFIER USING IDENTIFIER .
+
+    STRING          reduce using rule 19 (transformation_property -> value ARROW IDENTIFIER USING IDENTIFIER .)
+    NUMBER          reduce using rule 19 (transformation_property -> value ARROW IDENTIFIER USING IDENTIFIER .)
+    BOOLEAN         reduce using rule 19 (transformation_property -> value ARROW IDENTIFIER USING IDENTIFIER .)
+    DATE            reduce using rule 19 (transformation_property -> value ARROW IDENTIFIER USING IDENTIFIER .)
+    LBRACE          reduce using rule 19 (transformation_property -> value ARROW IDENTIFIER USING IDENTIFIER .)
+    LBRACKET        reduce using rule 19 (transformation_property -> value ARROW IDENTIFIER USING IDENTIFIER .)
+    IDENTIFIER      reduce using rule 19 (transformation_property -> value ARROW IDENTIFIER USING IDENTIFIER .)
+    RBRACE          reduce using rule 19 (transformation_property -> value ARROW IDENTIFIER USING IDENTIFIER .)
+
