@@ -1,9 +1,8 @@
 import "data.arc"
 import "../main.arc"
 
-namespace test {
-    Type Test extends B {
+namespace namespace1 {
+    Type Test {
         String apa
     }
-
 }

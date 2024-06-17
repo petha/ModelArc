@@ -4,6 +4,10 @@ from arc_preprocessor import preprocessor
 from arc_lexer import lexer
 from arc_parser import arc_parser
 from arc_ast import pretty_print
+from symbol_collector import SymbolCollector
+from symbol_table import SymbolTable
+from reference_resolver import ReferenceResolver
+
 #from arc_ast import build_ast, validate_ast, print_ast
 
 def print_ast(ast):
@@ -28,18 +32,25 @@ def main():
 
     args = arg_parser.parse_args()
     
-    source_code = preprocessor(args.input_file)
-    lexer.input(source_code)
-    parse_tree = arc_parser.parse(source_code, lexer=lexer, tracking=True)
-  
-    #ast = build_ast(parse_tree)
-    #validate_ast(ast)
+    try:        
+        source_code = preprocessor(args.input_file)
+        lexer.input(source_code)
+        parse_tree = arc_parser.parse(source_code, lexer=lexer, tracking=True)
+        
+        symbol_table = SymbolTable()
+        symbol_collector = SymbolCollector(symbol_table)
+        symbol_collector.visit(parse_tree)
+
+        reference_resolver = ReferenceResolver(symbol_table)
+        reference_resolver.visit(parse_tree)
+    except Exception as e:
+        print(e)
+        exit(-1)
 
     if args.target in target_functions:
         target_functions[args.target](parse_tree)
     else:
         raise ValueError(f"Invalid target {args.target}")
-
 
 if __name__ == '__main__':
     main()

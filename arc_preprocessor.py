@@ -12,13 +12,10 @@ def preprocessor(filename):
    return preprocess(filename, base_path)
 
 def preprocess(filename, base_path):
-    global imports
-    
-    if filename in imports:
+    full_path = os.path.abspath(os.path.join(base_path, filename))
+    if full_path in imports:
         return ""
-    imports.append(filename)
-
-    full_path = os.path.join(base_path, filename)
+    imports.append(full_path)  
     source_code = read_file(full_path)
     
     expanded_code = []

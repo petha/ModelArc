@@ -1,18 +1,25 @@
 import "process.arc"
 // Comment
 
-namespace NexovaBM.test.test { 
+namespace NexovaBM.types { 
     Type Computer {
         List<String> Test
-        List<Application> Test
+        List<Processes.Application> ATest
         String Name
         Number CPU
-        Number RAM
         Number Storage
     }
 
     Type Application {
         String Name
+        Release {
+            Number value
+            Nested {
+                Number value
+                Number test
+            }
+            
+        }
     }
     
     Enum Status { 
@@ -45,7 +52,7 @@ namespace NexovaBM.test.test {
         }
     }
 
-    Transformation T1 Computer -> Device {
+    Transformation T1 Computer -> Application {
          "Computer Device" ->  name
     }
 
@@ -62,11 +69,8 @@ namespace NexovaBM.test.test {
 
     Instance MyLaptop of Computer {
         Name = "Windows"
-        Test = EnumStatus.value
-        Test = {
-            Name = "Test"
-        }
-        
+        Status = E1.Test
+               
         Release = {
             Major = 10
             Minor = 0
