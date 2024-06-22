@@ -2,12 +2,23 @@ import "process.arc"
 // Comment
 
 namespace NexovaBM.types { 
-    Type Computer {
+    Type Apa {
+        String Name
+        Number Age
+    }
+
+    Type Computer extends Apa {
         List<String> Test
+        E1 Status
         List<Processes.Application> ATest
+        Processes.Application OS
         String Name
         Number CPU
         Number Storage
+        Vendor { 
+            String Name
+            String Address
+        }
     }
 
     Type Application {
@@ -68,33 +79,29 @@ namespace NexovaBM.types {
     }
 
     Instance MyLaptop of Computer {
-        Name = "Windows"
-        Status = E1.Test
-               
-        Release = {
-            Major = 10
-            Minor = 0
-            Patch = 16299
-            test = {
-                test = 134
-            }
+        Age = 134
+        CPU = 4
+        Storage = 512
+        OS = Word
+        Status = E1.Closed
+        Name = "MyLaptop"
+        Test = ["Windowsf", "linux"]
+        ATest = [Word]
+        Vendor = {
+            Name = "Dell"
+            Address = "Bangalore"
         }
     }
 
     Instance Word of Application {
         Name = "Word"
-    }
-    
-    Instance YourLaptop of Computer {
-        Name = ["Windows", "linux"]
-        Test = Word
         Release = {
-            Major = 10
-            Minor = 0
-            Patch = 16299
-            test = {
-                test = 134
+            value= 12
+            Nested = {
+                value = 12
+                test = 12
             }
+            
         }
     }
 }

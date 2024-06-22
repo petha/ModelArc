@@ -7,8 +7,6 @@ Model Arc is a domain-specific language for modeling business processes, applica
 **Note:** The language is currently in development and not ready for **any** use. The parser is partially working and currently builds an incomplete AST.
 
 Still to do:
-- Symbol tables and lookups 
-- Type checking
 - Transformation engine 
 - Standard library of language constructs and transformation
 - Backends for various compile targets

@@ -90,6 +90,9 @@ class ListType(ASTNode):
 class Reference(ASTNode):
     def __init__(self, name):
         self.name = name
+        # take the last part of the identifier and put as value
+        # for instance 'a.b.c' -> 'c'
+        self.value = name.split('.')[-1]
 
 class ArcAST(ASTNode):
     def __init__(self, namespaces=[]):

@@ -7,6 +7,7 @@ from arc_ast import pretty_print
 from symbol_collector import SymbolCollector
 from symbol_table import SymbolTable
 from reference_resolver import ReferenceResolver
+from semantic_analyzer import SemanticAnalyzer
 
 #from arc_ast import build_ast, validate_ast, print_ast
 
@@ -43,6 +44,10 @@ def main():
 
         reference_resolver = ReferenceResolver(symbol_table)
         reference_resolver.visit(parse_tree)
+
+        semantic_analyzer = SemanticAnalyzer(symbol_table)
+        semantic_analyzer.visit(parse_tree)
+
     except Exception as e:
         print(e)
         exit(-1)
