@@ -1,0 +1,34 @@
+{
+  "name": "modelarc",
+  "displayName": "ModelArc",
+  "description": "Model arc language support",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "arc",
+        "aliases": [
+          "ModelArc",
+          "arc"
+        ],
+        "extensions": [
+          ".arc"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "arc",
+        "scopeName": "source.arc",
+        "path": "./syntaxes/arc.tmLanguage.json"
+      }
+    ]
+  }
+}

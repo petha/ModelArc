@@ -84,7 +84,7 @@ namespace NexovaBM.types {
     Instance Word of Application {
         Name = "Word"
     }
-
+    
     Instance YourLaptop of Computer {
         Name = ["Windows", "linux"]
         Test = Word
